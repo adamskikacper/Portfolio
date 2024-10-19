@@ -27,10 +27,7 @@ export default function Navbar() {
   });
 
   useEffect(() => {
-    const handleResize = () => setIsOpen(window.innerWidth >= 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setHidden(false);
   }, []);
 
   const handleNavClick = (
@@ -48,19 +45,20 @@ export default function Navbar() {
   return (
     <nav className="fixed left-0 right-0 top-4 z-50 mx-auto max-w-[1024px] px-4">
       <motion.nav
-        variants={{
-          visible: { y: 0 },
-          hidden: { y: "-130%" },
-        }}
+        initial="hidden"
         animate={hidden ? "hidden" : "visible"}
-        transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="rounded-[15px] border border-white border-opacity-20 bg-black bg-opacity-10 shadow-sm backdrop-blur-lg backdrop-filter"
+        variants={{
+          hidden: { y: "-130%" },
+          visible: { y: 0 },
+        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="border-border-light dark:border-border-dark bg-background-primary-dark rounded-[15px] border border-opacity-20 bg-opacity-[5%] shadow-sm backdrop-blur-lg backdrop-filter"
       >
         <div className="px-1 py-1">
           <div className="flex items-center justify-between p-2">
             <div className="flex items-center">
               <a href="#home" className="flex items-center">
-                <p className="text-md font-bold text-black dark:text-white">
+                <p className="text-text-primary-light dark:text-text-primary-dark text-sm font-bold">
                   Kacper Adamski
                 </p>
               </a>
@@ -72,8 +70,7 @@ export default function Navbar() {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="rounded-[3px] px-4 text-sm font-medium text-white transition-all duration-300 ease-in-out"
-                    whileTap={{ scale: 0.95 }}
+                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 text-sm font-medium transition-all duration-300 ease-in-out"
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.name}
@@ -86,7 +83,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center rounded-[3px] p-1.5 text-white hover:bg-white hover:bg-opacity-20 hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="text-text-primary-light dark:text-text-primary-dark inline-flex items-center justify-center rounded-[3px] p-1.5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-expanded={isOpen}
@@ -109,7 +106,7 @@ export default function Navbar() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="block rounded-[3px] px-3 py-2 text-sm font-medium text-white transition-all duration-300 ease-in-out hover:bg-white hover:bg-opacity-20"
+                  className="text-text-primary-light dark:text-text-primary-dark block rounded-[3px] px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-opacity-20"
                   style={{
                     background: "rgba(255, 255, 255, 0.1)",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
@@ -126,6 +123,7 @@ export default function Navbar() {
                   {item.name}
                 </motion.a>
               ))}
+              <ThemeToggle />
             </div>
           </div>
         )}

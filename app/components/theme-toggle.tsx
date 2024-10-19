@@ -3,25 +3,25 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
+// Function to determine the initial theme
+const getInitialTheme = () => {
+  const storedTheme = localStorage.getItem("theme");
+  if (storedTheme) {
+    return storedTheme === "dark";
+  }
+  return document.documentElement.classList.contains("dark");
+};
+
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   const handleToggle = () => {
-    setIsDark((prev) => {
-      const newMode = !prev;
-      if (newMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      localStorage.setItem("theme", newMode ? "dark" : "light");
-      return newMode;
-    });
+    setIsDark((prev) => !prev);
   };
 
   return (
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       onClick={handleToggle}
       onKeyDown={(e) => e.key === "Enter" && handleToggle()}
       aria-label="Toggle theme"
-      className="rounded-full bg-gray-200 p-2 transition-colors duration-200 dark:bg-gray-800"
+      className="rounded-full p-2 transition-colors duration-200"
     >
       {isDark ? (
         <Sun className="h-6 w-6 text-white" />

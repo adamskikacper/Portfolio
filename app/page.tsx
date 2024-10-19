@@ -8,7 +8,7 @@ export default function Home() {
     { name: "Contact", href: "#contact" },
   ];
   return (
-    <div className="min-h-screen bg-white text-white dark:bg-gray-900 dark:text-white">
+    <div className="bg-background-primary-light dark:bg-background-primary-dark text-text-primary-light dark:text-text-primary-dark min-h-screen">
       <Navbar />
 
       <div className="pt-24">
@@ -16,7 +16,7 @@ export default function Home() {
           <div
             key={item.name}
             id={item.href.slice(1)}
-            className="flex h-screen items-center justify-center text-4xl font-bold"
+            className="text-text-primary-light dark:text-text-primary-dark flex h-screen items-center justify-center text-4xl font-bold"
           >
             {item.name} Section
           </div>

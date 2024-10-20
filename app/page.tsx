@@ -7,10 +7,15 @@ export default function Home() {
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
+
   return (
     <div className="bg-background-primary-light dark:bg-background-primary-dark text-text-primary-light dark:text-text-primary-dark min-h-screen">
       <Navbar />
-      <Header />
+
+      <div className="container h-[50vh] grid items-center pt-24">
+        <Header />
+      </div>
+
       <div className="pt-24">
         {navItems.map((item) => (
           <div

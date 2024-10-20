@@ -13,11 +13,11 @@ const config: Config = {
         background: {
           primary: {
             light: "#F5F5F7",
-            dark: "#1A1A1A",
+            dark: "#101010",
           },
           secondary: {
             light: "#f7fafc",
-            dark: "#2d3748",
+            dark: "#1F1F1F",
           },
         },
         text: {
@@ -94,6 +94,23 @@ const config: Config = {
       },
       animation: {
         "spin-slow": "spin 3s linear infinite",
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
+        },
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px",
+        },
       },
     },
   },

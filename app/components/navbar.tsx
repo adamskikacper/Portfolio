@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./theme-toggle";
@@ -16,6 +16,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const [hoverPosition, setHoverPosition] = useState({ x: -1, y: -1 });
+  const navRef = useRef<HTMLDivElement>(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -30,10 +32,21 @@ export default function Navbar() {
     setHidden(false);
   }, []);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (navRef.current) {
+      const rect = navRef.current.getBoundingClientRect();
+      setHoverPosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoverPosition({ x: -1, y: -1 });
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
@@ -43,8 +56,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed left-0 right-0 top-4 z-50 mx-auto max-w-[1024px] px-4">
+    <div className="fixed left-0 right-0 top-4 z-50 mx-auto container">
       <motion.nav
+        ref={navRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         initial="hidden"
         animate={hidden ? "hidden" : "visible"}
         variants={{
@@ -52,7 +68,7 @@ export default function Navbar() {
           visible: { y: 0 },
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="border-border-light dark:border-border-dark rounded-[15px] border bg-opacity-[15%] shadow-sm backdrop-blur-lg backdrop-filter"
+        className="bg-background-primary-light dark:bg-background-primary-dark border-border-light dark:border-border-dark rounded-[15px] border bg-opacity-70 dark:bg-opacity-70 shadow-sm backdrop-blur-[5px] relative overflow-hidden"
       >
         <div className="px-1 py-1">
           <div className="flex items-center justify-between p-2">
@@ -70,10 +86,10 @@ export default function Navbar() {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 text-sm font-medium"
+                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 py-2 text-sm font-medium relative overflow-hidden"
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
-                    {item.name}
+                    <span className="relative z-10">{item.name}</span>
                   </motion.a>
                 ))}
                 <ThemeToggle />
@@ -89,11 +105,7 @@ export default function Navbar() {
                 aria-expanded={isOpen}
                 aria-label="Toggle navigation menu"
               >
-                {isOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}{" "}
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}{" "}
               </motion.button>
             </div>
           </div>
@@ -106,7 +118,7 @@ export default function Navbar() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-text-primary-light dark:text-text-primary-dark block rounded-[3px] px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-opacity-20"
+                  className="text-text-primary-light dark:text-text-primary-dark block rounded-[3px] px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-opacity-20 relative overflow-hidden"
                   style={{
                     background: "rgba(255, 255, 255, 0.1)",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
@@ -120,14 +132,24 @@ export default function Navbar() {
                   whileTap={{ scale: 0.98 }}
                   onClick={(e) => handleNavClick(e, item.href)}
                 >
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
                 </motion.a>
               ))}
               <ThemeToggle />
             </div>
           </div>
         )}
+
+        {hoverPosition.x > 0 && hoverPosition.y > 0 && (
+          <span
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `radial-gradient(circle 100px at ${hoverPosition.x}px ${hoverPosition.y}px, rgba(255,255,255,0.3), transparent 100%)`,
+              filter: "blur(30px)",
+            }}
+          />
+        )}
       </motion.nav>
-    </nav>
+    </div>
   );
 }

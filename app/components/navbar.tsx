@@ -52,7 +52,7 @@ export default function Navbar() {
           visible: { y: 0 },
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="border-border-light dark:border-border-dark bg-background-primary-dark rounded-[15px] border border-opacity-20 bg-opacity-[5%] shadow-sm backdrop-blur-lg backdrop-filter"
+        className="border-border-light dark:border-border-dark rounded-[15px] border bg-opacity-[15%] shadow-sm backdrop-blur-lg backdrop-filter"
       >
         <div className="px-1 py-1">
           <div className="flex items-center justify-between p-2">
@@ -70,7 +70,7 @@ export default function Navbar() {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 text-sm font-medium transition-all duration-300 ease-in-out"
+                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 text-sm font-medium"
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.name}

@@ -1,5 +1,4 @@
 name = "your-project-name"
-main = ".vercel/output/static/_worker.js"
 compatibility_date = "2023-10-30"
 compatibility_flags = ["nodejs_compat"]
 
@@ -9,8 +8,4 @@ command = "npm run build"
 [site]
 bucket = ".vercel/output/static"
 
-[build.upload]
-format = "service-worker"
-
-[pages_build_output_dir]
-value = ".vercel/output/static"
+pages_build_output_dir = ".vercel/output/static"

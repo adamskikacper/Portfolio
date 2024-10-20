@@ -56,7 +56,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed left-0 right-0 top-4 z-50 mx-auto container">
+    <div className="container fixed left-0 right-0 top-4 z-50 mx-auto">
       <motion.nav
         ref={navRef}
         onMouseMove={handleMouseMove}
@@ -68,13 +68,13 @@ export default function Navbar() {
           visible: { y: 0 },
         }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="bg-background-primary-light dark:bg-background-primary-dark border-border-light dark:border-border-dark rounded-[15px] border bg-opacity-70 dark:bg-opacity-70 shadow-sm backdrop-blur-[5px] relative overflow-hidden"
+        className="relative overflow-hidden rounded-[15px] border border-border-light bg-background-primary-light bg-opacity-70 shadow-sm backdrop-blur-[5px] dark:border-border-dark dark:bg-background-primary-dark dark:bg-opacity-70"
       >
         <div className="px-1 py-1">
           <div className="flex items-center justify-between p-2">
             <div className="flex items-center">
               <a href="#home" className="flex items-center">
-                <p className="text-text-primary-light dark:text-text-primary-dark text-sm font-bold">
+                <p className="text-sm font-bold text-text-primary-light dark:text-text-primary-dark">
                   Kacper Adamski
                 </p>
               </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-text-primary-light dark:text-text-primary-dark rounded-[3px] px-4 py-2 text-sm font-medium relative overflow-hidden"
+                    className="relative overflow-hidden rounded-[3px] px-4 py-2 text-sm font-medium text-text-primary-light dark:text-text-primary-dark"
                     onClick={(e) => handleNavClick(e, item.href)}
                   >
                     <span className="relative z-10">{item.name}</span>
@@ -99,7 +99,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-text-primary-light dark:text-text-primary-dark inline-flex items-center justify-center rounded-[3px] p-1.5"
+                className="inline-flex items-center justify-center rounded-[3px] p-1.5 text-text-primary-light dark:text-text-primary-dark"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 aria-expanded={isOpen}
@@ -118,7 +118,7 @@ export default function Navbar() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-text-primary-light dark:text-text-primary-dark block rounded-[3px] px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-opacity-20 relative overflow-hidden"
+                  className="relative block overflow-hidden rounded-[3px] px-3 py-2 text-sm font-medium text-text-primary-light transition-all duration-300 ease-in-out hover:bg-opacity-20 dark:text-text-primary-dark"
                   style={{
                     background: "rgba(255, 255, 255, 0.1)",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
@@ -142,7 +142,7 @@ export default function Navbar() {
 
         {hoverPosition.x > 0 && hoverPosition.y > 0 && (
           <span
-            className="absolute inset-0 pointer-events-none"
+            className="pointer-events-none absolute inset-0"
             style={{
               background: `radial-gradient(circle 100px at ${hoverPosition.x}px ${hoverPosition.y}px, rgba(255,255,255,0.3), transparent 100%)`,
               filter: "blur(30px)",

@@ -1,5 +1,5 @@
 import Navbar from "./components/navbar";
-
+import Header from "./components/header";
 export default function Home() {
   const navItems = [
     { name: "Home", href: "#home" },
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="bg-background-primary-light dark:bg-background-primary-dark text-text-primary-light dark:text-text-primary-dark min-h-screen">
       <Navbar />
-
+      <Header />
       <div className="pt-24">
         {navItems.map((item) => (
           <div

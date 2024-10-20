@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         background: {
           primary: {
-            light: "#ffffff",
+            light: "#F5F5F7",
             dark: "#1A1A1A",
           },
           secondary: {
@@ -42,7 +42,7 @@ const config: Config = {
         },
         border: {
           light: "#e2e8f0",
-          dark: "#2A2A2A",
+          dark: "#4a5568",
         },
         button: {
           primary: {

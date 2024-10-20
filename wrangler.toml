@@ -19,3 +19,6 @@ workers_dev = true
 [[rules]]
 type = "NavigationRoute"
 route = "/*"
+
+pages_build_output_dir = ".vercel/output/static"
+

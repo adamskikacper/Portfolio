@@ -3,21 +3,24 @@
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
-// Function to determine the initial theme
-const getInitialTheme = () => {
-  const storedTheme = localStorage.getItem("theme");
-  if (storedTheme) {
-    return storedTheme === "dark";
-  }
-  return document.documentElement.classList.contains("dark");
-};
-
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(getInitialTheme);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    // Check if we're on the client-side
+    if (typeof window !== "undefined") {
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      setIsDark(storedTheme === "dark" || (!storedTheme && prefersDark));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.classList.toggle("dark", isDark);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    }
   }, [isDark]);
 
   const handleToggle = () => {
@@ -30,12 +33,9 @@ export default function ThemeToggle() {
       onKeyDown={(e) => e.key === "Enter" && handleToggle()}
       aria-label="Toggle theme"
       className="rounded-full p-2 transition-colors duration-200"
+      tabIndex={0}
     >
-      {isDark ? (
-        <Sun className="h-6 w-6 text-white" />
-      ) : (
-        <Moon className="h-6 w-6 text-gray-700" />
-      )}
+      {isDark ? <Sun className="h-6 w-6 text-white" /> : <Moon className="h-6 w-6 text-gray-700" />}
     </button>
   );
 }

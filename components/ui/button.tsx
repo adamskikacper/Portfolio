@@ -45,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     const [hoverPosition, setHoverPosition] = React.useState({ x: -1, y: -1 });
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
+    const buttonRef = React.useRef<HTMLButtonElement | null>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (buttonRef.current) {
@@ -70,6 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           } else if (ref) {
             ref.current = node;
           }
+
           buttonRef.current = node;
         }}
         onMouseMove={handleMouseMove}

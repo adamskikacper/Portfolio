@@ -23,12 +23,21 @@ export default function Header() {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1
-          variants={itemVariants}
-          className="text-primary animate-fade-in-up mb-4 text-5xl font-bold sm:text-6xl"
-        >
-          Building Modern Web Solutions
-        </motion.h1>
+        <motion.div variants={itemVariants} className="relative">
+          <h1 className="text-primary animate-fade-in-up mb-4 text-5xl font-bold leading-tight sm:text-6xl sm:leading-[70px]">
+            Building{" "}
+            <span className="relative">
+              Modern
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1, delay: 2 }}
+                className="absolute bottom-[5px] left-0 z-[-1] h-[13px] bg-gradient-to-r from-zinc-300 to-zinc-500"
+              ></motion.div>
+            </span>
+            Web Solutions
+          </h1>
+        </motion.div>
 
         <motion.p variants={itemVariants} className="text-muted-foreground mb-8 max-w-2xl text-xl">
           Looking for average? You&apos;re in the wrong place. But if you want web solutions that
@@ -66,7 +75,10 @@ export default function Header() {
         </motion.div>
       </motion.div>
 
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.6 }}
         className="relative hidden h-full hover:cursor-pointer lg:block"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -109,7 +121,7 @@ export default function Header() {
             See projects
           </Button>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 }

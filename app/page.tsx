@@ -71,7 +71,6 @@ export default function Home() {
           y: headerY,
           scale,
           borderRadius,
-          backdropFilter: `blur(${blur}px)`,
         }}
         className="relative top-[97px] flex h-[calc(100vh-97px)] items-center justify-center bg-white dark:bg-background-secondary-dark"
       >

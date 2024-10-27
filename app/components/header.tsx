@@ -21,7 +21,7 @@ export default function Header() {
         animate="visible"
       >
         <motion.div variants={itemVariants} className="relative">
-          <h1 className="text-primary animate-fade-in-up mb-4 max-w-[600px] text-5xl font-bold leading-tight sm:text-6xl sm:leading-[70px]">
+          <h1 className="text-primary animate-fade-in-up mb-4 max-w-[600px] text-5xl font-extrabold leading-tight sm:text-6xl sm:leading-[70px]">
             Building{" "}
             <span className="relative">
               Modern{" "}

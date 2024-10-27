@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import ProjectSection from "./components/project-section";
 import { Project } from "./types/projectTypes";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const projects: Project[] = [
   {
@@ -54,27 +55,40 @@ const projects: Project[] = [
 ];
 
 export default function Home() {
+  const { scrollY } = useScroll();
+
+  const headerY = useTransform(scrollY, [0, 500], [0, -150]);
+  const scale = useTransform(scrollY, [200, 0], [1, 0.95]);
+
+  const borderRadius = useTransform(scrollY, [500, 0], [0, 48]);
+
   return (
     <div className="bg-background-primary-light text-text-primary-light dark:bg-background-primary-dark dark:text-text-primary-dark">
       <Navbar />
 
-      <div className="bg-background-secondary-light dark:bg-background-secondary-dark">
-        <div className="container flex h-screen items-center justify-center">
+      <motion.div
+        style={{
+          y: headerY,
+          scale,
+          borderRadius,
+          backdropFilter: `blur(${blur}px)`,
+        }}
+        className="relative top-[97px] flex h-[calc(100vh-97px)] items-center justify-center bg-white dark:bg-background-secondary-dark"
+      >
+        <div className="">
           <Header />
         </div>
-      </div>
+      </motion.div>
 
-      <div className="container mt-16 flex items-center justify-center">
-        <h2 className="relative mb-4 inline-block pb-2 text-6xl font-extrabold uppercase tracking-wider">
-          <span className="bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text text-transparent dark:from-zinc-300 dark:to-zinc-500">
-            Projects
-          </span>
+      <div className="container my-[97px] flex items-center justify-center">
+        <h2 className="mb-4 inline-block bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text pb-2 text-6xl font-extrabold uppercase tracking-wider text-transparent dark:from-zinc-300 dark:to-zinc-500">
+          Projects
         </h2>
       </div>
 
       {projects.map((item) => (
-        <section key={item.id} className="h-[80vh]">
-          <div className="container flex h-full items-center justify-center">
+        <section key={item.id}>
+          <div className="container mb-[200px] flex h-full items-center justify-center">
             <ProjectSection project={item} />
           </div>
         </section>

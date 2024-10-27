@@ -74,7 +74,7 @@ export default function Home() {
         }}
         className="relative top-[97px] flex h-[calc(100vh-97px)] items-center justify-center bg-white dark:bg-background-secondary-dark"
       >
-        <div className="">
+        <div className="relative">
           <Header />
         </div>
       </motion.div>
@@ -85,10 +85,10 @@ export default function Home() {
         </h2>
       </div>
 
-      {projects.map((item) => (
+      {projects.map((item, index) => (
         <section key={item.id}>
-          <div className="container mb-[200px] flex h-full items-center justify-center">
-            <ProjectSection project={item} />
+          <div className="container mb-[200px]">
+            <ProjectSection project={item} isReversed={index % 2 === 1} />
           </div>
         </section>
       ))}

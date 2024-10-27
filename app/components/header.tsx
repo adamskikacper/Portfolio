@@ -1,19 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDownIcon, Github, MailIcon } from "lucide-react";
+import { Github, MailIcon } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+
 import { motion } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 
 export default function Header() {
   const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
-  const [isHovered, setIsHovered] = useState(false);
-  const { containerVariants, itemVariants } = useStaggerAnimation();
 
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
+  const { containerVariants, itemVariants } = useStaggerAnimation();
 
   return (
     <header className="grid w-full items-center gap-5 rounded-xl lg:grid-cols-2">
@@ -79,9 +76,7 @@ export default function Header() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.6 }}
-        className="relative hover:cursor-pointer lg:block"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className="relative lg:block"
       >
         {" "}
         <Image

@@ -6,7 +6,12 @@ import { motion, useInView } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useState, useRef } from "react";
 
-const ProjectSection = ({ project }: { project: Project }) => {
+interface ProjectSectionProps {
+  project: Project;
+  isReversed?: boolean;
+}
+
+const ProjectSection = ({ project, isReversed = false }: ProjectSectionProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { containerVariants, itemVariants } = useStaggerAnimation();
   const ref = useRef(null);
@@ -21,10 +26,12 @@ const ProjectSection = ({ project }: { project: Project }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="relative grid w-full items-center gap-10 rounded-xl lg:grid-cols-2"
+      className={`relative flex w-full items-center gap-10 rounded-xl ${
+        isReversed ? "flex-row-reverse" : ""
+      }`}
     >
       <motion.div
-        className="mr-8 max-w-2xl"
+        className={`${isReversed ? "ml-8" : "mr-8"} max-w-2xl`}
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

@@ -53,34 +53,50 @@ const ProjectSection = ({ project, isReversed = false }: ProjectSectionProps) =>
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 1.6 }}
-        className="relative hidden h-full hover:cursor-pointer lg:block"
+        className="relative hidden h-full shadow-lg hover:cursor-pointer lg:block"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
+        <Image
+          src={project.gifUrl}
+          alt="Preload GIF"
+          width={1}
+          height={1}
+          unoptimized={true}
+          className="absolute h-0 w-0 opacity-0"
+          priority={true}
+        />
+
         <div
           className={`absolute ${isHovered ? "right-[-15px] top-[-15px]" : "right-0 top-0"} h-full w-full transition-all duration-200`}
         >
           <Image
-            src="/assets/images/header-image.jpg"
+            src={isHovered ? project.gifUrl : project.imageUrl}
             alt="Header Image"
             width={500}
             height={300}
+            unoptimized={true}
+            priority={true}
             className="absolute h-full w-full rounded-lg bg-background-secondary-dark shadow-sm backdrop-blur-[5px] dark:border-border-light dark:bg-background-secondary-light"
           />
-          <div className="absolute h-full w-full rounded-lg bg-background-secondary-dark bg-opacity-70 shadow-sm backdrop-blur-[5px] dark:border-border-light dark:bg-background-secondary-light dark:bg-opacity-20"></div>
+
+          <div className="absolute h-full w-full rounded-lg bg-background-secondary-dark bg-opacity-30 shadow-sm backdrop-blur-[5px] dark:border-border-light dark:bg-background-secondary-light dark:bg-opacity-20"></div>
         </div>
 
         <div className="relative h-full w-full">
           <Image
-            src="/assets/images/header-image.jpg"
+            src={isHovered ? project.gifUrl : project.imageUrl}
             alt="Header Image"
             width={500}
             height={300}
+            unoptimized={true}
+            priority={true}
             className="relative h-full w-full rounded-lg object-cover"
           />
+
           <div
             className={`absolute top-0 h-full w-full rounded-lg bg-background-secondary-dark shadow-sm backdrop-blur-[15px] transition-all duration-200 ${
-              isHovered ? "opacity-30" : "opacity-0"
+              isHovered ? "opacity-10" : "opacity-0"
             }`}
           ></div>
         </div>

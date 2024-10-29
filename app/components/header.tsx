@@ -33,7 +33,7 @@ export default function Header() {
         scale: windowWidth >= 1024 ? scale : 1,
         borderRadius: windowWidth >= 1024 ? borderRadius : 0,
       }}
-      className="relative h-full gap-5 rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] lg:dark:bg-background-secondary-dark"
+      className="relative h-full gap-5 rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
     >
       <div className="container grid h-full items-center lg:grid-cols-2">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">

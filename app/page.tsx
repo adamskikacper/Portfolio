@@ -63,9 +63,7 @@ export default function Home() {
     <div className="bg-background-primary-light text-text-primary-light dark:bg-background-primary-dark dark:text-text-primary-dark">
       <Navbar />
 
-      <div className="relative lg:dark:bg-background-primary-dark">
-        <Header />
-      </div>
+      <Header />
 
       <div className="container my-[97px] flex items-center justify-center">
         <h2 className="mb-4 inline-block bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text pb-2 text-5xl font-extrabold uppercase text-transparent dark:from-zinc-300 dark:to-zinc-500">

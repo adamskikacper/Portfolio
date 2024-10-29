@@ -5,4 +5,5 @@ export type Project = {
   technologies: string[];
   link: string;
   imageUrl: string;
+  gifUrl: string;
 };

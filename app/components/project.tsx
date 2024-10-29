@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { Project } from "@/app/types/projectTypes";
+import { ProjectTypes } from "../types/projectTypes";
 import { motion, useInView } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useState, useRef } from "react";
 
-interface ProjectSectionProps {
-  project: Project;
+interface ProjectProps {
+  project: ProjectTypes;
   isReversed?: boolean;
 }
 
-const ProjectSection = ({ project, isReversed = false }: ProjectSectionProps) => {
+const Project = ({ project, isReversed = false }: ProjectProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { containerVariants, itemVariants } = useStaggerAnimation();
   const ref = useRef(null);
@@ -105,4 +105,4 @@ const ProjectSection = ({ project, isReversed = false }: ProjectSectionProps) =>
   );
 };
 
-export default ProjectSection;
+export default Project;

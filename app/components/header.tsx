@@ -33,9 +33,9 @@ export default function Header() {
         scale: windowWidth >= 1024 ? scale : 1,
         borderRadius: windowWidth >= 1024 ? borderRadius : 0,
       }}
-      className="relative h-full gap-5 rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] lg:dark:bg-background-secondary-dark"
+      className="relative h-full rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] lg:dark:bg-background-secondary-dark"
     >
-      <div className="container grid h-full items-center lg:grid-cols-2">
+      <div className="container grid h-full items-center gap-5 lg:grid-cols-2">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <motion.div variants={itemVariants} className="relative">
             <h1 className="max-w-[300px] text-4xl font-extrabold leading-tight sm:leading-[70px] md:max-w-[500px] md:text-6xl lg:max-w-[600px]">
@@ -55,11 +55,11 @@ export default function Header() {
 
           <motion.div variants={itemVariants} className="relative">
             <Image
-              src="/assets/images/avatar.jpg"
+              src="/assets/images/header-image.jpg"
               alt="Header Image"
               width={300}
-              height={100}
-              className="m-auto my-4 max-h-[500px] w-full max-w-[500px] rounded-lg shadow-2xl sm:my-8 lg:hidden"
+              height={500}
+              className="m-auto my-4 w-full rounded-lg shadow-lg sm:my-8 lg:hidden"
             />
           </motion.div>
 
@@ -115,11 +115,11 @@ export default function Header() {
         >
           {" "}
           <Image
-            src="/assets/images/avatar.jpg"
+            src="/assets/images/header-image.jpg"
             alt="Header Image"
             width={500}
-            height={300}
-            className="m-auto hidden rounded-lg shadow-2xl lg:block"
+            height={500}
+            className="m-auto hidden h-full w-full rounded-4xl shadow-lg lg:block"
           />
         </motion.div>
       </div>

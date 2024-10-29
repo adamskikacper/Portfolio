@@ -2,10 +2,12 @@
 
 import Navbar from "./components/navbar";
 import Header from "./components/header";
-import ProjectSection from "./components/project-section";
-import { Project } from "./types/projectTypes";
+import Project from "./components/project";
+import AboutMe from "./components/about-me";
 
-const projects: Project[] = [
+import type { ProjectTypes } from "./types/projectTypes";
+
+const projects: ProjectTypes[] = [
   {
     id: 1,
     title: "E-commerce Platform",
@@ -67,6 +69,10 @@ export default function Home() {
         <Header />
       </div>
 
+      <div className="container py-[97px]">
+        <AboutMe />
+      </div>
+
       <div className="container my-[97px] flex items-center justify-center">
         <h2 className="mb-4 inline-block bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text pb-2 text-5xl font-extrabold uppercase text-transparent dark:from-zinc-300 dark:to-zinc-500">
           Projects
@@ -76,7 +82,7 @@ export default function Home() {
       {projects.map((item, index) => (
         <section key={item.id}>
           <div className="container mb-[200px]">
-            <ProjectSection project={item} isReversed={index % 2 === 1} />
+            <Project project={item} isReversed={index % 2 === 1} />
           </div>
         </section>
       ))}

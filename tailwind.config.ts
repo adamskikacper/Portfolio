@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
 const config: Config = {
   darkMode: "selector",
@@ -119,6 +120,7 @@ const config: Config = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
     "prettier-plugin-tailwindcss",
+    daisyui,
   ],
 };
 

@@ -4,8 +4,6 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import ProjectSection from "./components/project-section";
 import { Project } from "./types/projectTypes";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useEffect } from "react";
 
 const projects: Project[] = [
   {

@@ -57,32 +57,6 @@ const Project = ({ project, isReversed = false }: ProjectProps) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <Image
-          src={project.gifUrl}
-          alt="Preload GIF"
-          width={1}
-          height={1}
-          unoptimized={true}
-          className="absolute h-0 w-0 opacity-0"
-          priority={true}
-        />
-
-        <div
-          className={`absolute ${isHovered ? "right-[-15px] top-[-15px]" : "right-0 top-0"} h-full w-full transition-all duration-200`}
-        >
-          <Image
-            src={isHovered ? project.gifUrl : project.imageUrl}
-            alt="Header Image"
-            width={500}
-            height={300}
-            unoptimized={true}
-            priority={true}
-            className="absolute h-full w-full rounded-lg bg-background-secondary-dark shadow-sm backdrop-blur-[5px] dark:border-border-light dark:bg-background-secondary-light"
-          />
-
-          <div className="absolute h-full w-full rounded-lg bg-background-secondary-dark bg-opacity-30 shadow-sm backdrop-blur-[5px] dark:border-border-light dark:bg-background-secondary-light dark:bg-opacity-20"></div>
-        </div>
-
         <div className="relative h-full w-full">
           <Image
             src={isHovered ? project.gifUrl : project.imageUrl}

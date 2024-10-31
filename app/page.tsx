@@ -69,12 +69,12 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="container py-[97px]">
+      <div className="container py-10">
         <AboutMe />
       </div>
 
-      <div className="container my-[97px] flex items-center justify-center">
-        <h2 className="mb-4 inline-block bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text pb-2 text-5xl font-extrabold uppercase text-transparent dark:from-zinc-300 dark:to-zinc-500">
+      <div className="container py-10">
+        <h2 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
           Projects
         </h2>
       </div>

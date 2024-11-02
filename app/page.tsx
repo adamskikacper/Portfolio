@@ -12,51 +12,51 @@ const projects: ProjectTypes[] = [
     id: 1,
     title: "E-commerce Platform",
     description:
-      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process.",
+      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process. A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
     link: "#",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    gifUrl: "/assets/images/blockchain-fundraising.jpg",
+    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
   },
   {
     id: 2,
     title: "Weather Dashboard",
     description:
-      "An interactive weather application that provides real-time forecasts using the OpenWeatherMap API. Users can search for locations worldwide and view detailed weather information including temperature, humidity, wind speed, and 5-day forecast.",
+      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process. An interactive weather application that provides real-time forecasts using the OpenWeatherMap API. Users can search for locations worldwide and view detailed weather information including temperature, humidity, wind speed, and 5-day forecast.",
     technologies: ["JavaScript", "React", "OpenWeatherMap API", "Chart.js"],
     link: "#",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    gifUrl: "/assets/images/blockchain-fundraising.jpg",
+    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
   },
   {
     id: 3,
     title: "Task Management System",
     description:
-      "A Kanban-style project management tool inspired by Trello. This application allows users to create boards, lists, and cards to organize their tasks efficiently. It includes features like drag-and-drop functionality, due dates, and team collaboration.",
+      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process. A Kanban-style project management tool inspired by Trello. This application allows users to create boards, lists, and cards to organize their tasks efficiently. It includes features like drag-and-drop functionality, due dates, and team collaboration.",
     technologies: ["Vue.js", "Vuex", "Node.js", "PostgreSQL", "Socket.io"],
     link: "#",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    gifUrl: "/assets/images/blockchain-fundraising.jpg",
+    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
   },
   {
     id: 4,
     title: "AI-Powered Chatbot",
     description:
-      "An intelligent chatbot leveraging natural language processing to provide customer support and answer queries. This project demonstrates integration with machine learning models and real-time communication.",
+      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process. An intelligent chatbot leveraging natural language processing to provide customer support and answer queries. This project demonstrates integration with machine learning models and real-time communication.",
     technologies: ["Python", "TensorFlow", "Flask", "WebSocket", "React"],
     link: "#",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    gifUrl: "/assets/images/blockchain-fundraising.jpg",
+    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
   },
   {
     id: 5,
     title: "Blockchain Voting System",
     description:
-      "A secure and transparent voting system built on blockchain technology. This project explores the use of smart contracts for election integrity and includes features like voter authentication and real-time result tabulation.",
+      "A full-stack online store built with React and Node.js. This project showcases a modern, responsive design with features like user authentication, product catalog, shopping cart, and secure checkout process. A secure and transparent voting system built on blockchain technology. This project explores the use of smart contracts for election integrity and includes features like voter authentication and real-time result tabulation.",
     technologies: ["Solidity", "Ethereum", "Web3.js", "React", "Node.js"],
     link: "#",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    gifUrl: "/assets/images/blockchain-fundraising.jpg",
+    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
   },
 ];
 
@@ -79,13 +79,9 @@ export default function Home() {
         </h2>
       </div>
 
-      {projects.map((item, index) => (
-        <section key={item.id}>
-          <div className="container mb-[200px]">
-            <Project project={item} isReversed={index % 2 === 1} />
-          </div>
-        </section>
-      ))}
+      <div className="container py-10">
+        <Project projects={projects} />
+      </div>
     </div>
   );
 }

@@ -1,22 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { DownloadIcon } from "lucide-react";
 import HoverImage from "./hover-image";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 
 const AboutMe = () => {
+  const { scrollY } = useScroll();
   const { containerVariants, itemVariants } = useStaggerAnimation();
-
+  const imageY = useTransform(scrollY, [2000, 0], [0, 200]);
+  const textY = useTransform(scrollY, [0, 1000], [0, 100]);
   return (
     <section className="container mx-auto px-4 py-16">
-      <div className="relative">
+      <div className="relative grid grid-cols-1 gap-8 md:grid-cols-2">
         <motion.div
           variants={containerVariants}
           whileInView="visible"
           initial="hidden"
-          viewport={{ once: true }}
-          className="mb-8 w-full md:float-left md:mb-4 md:mr-8 lg:mr-12 lg:max-w-[500px] xl:max-w-[600px]"
+          viewport={{ once: true, amount: 0.5 }}
+          style={{
+            y: imageY,
+          }}
+          className="mb-8 w-full md:mb-4 md:mr-8 lg:mr-12 lg:max-w-[500px] xl:max-w-[600px]"
         >
           <motion.h2
             variants={itemVariants}
@@ -27,7 +32,9 @@ const AboutMe = () => {
 
           <motion.div variants={itemVariants}>
             <HoverImage
-              src="/assets/images/avatar.jpg"
+              imgSrc="/assets/images/avatar.jpg"
+              videoSrc={""}
+              type="image"
               alt="Header Image"
               width={500}
               height={500}
@@ -41,7 +48,11 @@ const AboutMe = () => {
           variants={containerVariants}
           whileInView="visible"
           initial="hidden"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.5 }}
+          style={{
+            y: textY,
+          }}
+          className="text-justify"
         >
           <motion.h2
             variants={itemVariants}
@@ -49,15 +60,7 @@ const AboutMe = () => {
           >
             About me
           </motion.h2>
-        </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          whileInView="visible"
-          initial="hidden"
-          viewport={{ once: true }}
-          className="text-justify"
-        >
           <motion.p
             variants={itemVariants}
             className="eading-relaxed mb-5 text-gray-600 sm:text-lg dark:text-gray-300"

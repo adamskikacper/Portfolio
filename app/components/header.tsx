@@ -2,94 +2,51 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, MailIcon } from "lucide-react";
-import Image from "next/image";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect } from "react";
 import { useState } from "react";
+import StackIcon from "tech-stack-icons";
 
 export default function Header() {
   const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
   const images = [
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
-    "/assets/images/angular-light.svg",
-    "/assets/images/nextjs-light.svg",
-    "/assets/images/sass-light.svg",
-    "/assets/images/figma-light.svg",
-    "/assets/images/html-light.svg",
-    "/assets/images/reactjs-light.svg",
-    "/assets/images/js-light.svg",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "nextjs2",
+    "js",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "nextjs2",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
   ];
 
   useEffect(() => {
@@ -112,7 +69,9 @@ export default function Header() {
         scale: windowWidth >= 1024 ? scale : 1,
         borderRadius: windowWidth >= 1024 ? borderRadius : 0,
       }}
-      className="relative flex h-full items-center overflow-hidden rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
+      initial="hidden"
+      animate="visible"
+      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white bg-[url('/assets/images/header-light.svg')] bg-cover pb-[40px] pt-[130px] shadow-lg md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark dark:bg-[url('/assets/images/header-dark.svg')]"
     >
       <motion.div
         className="container z-10"
@@ -120,7 +79,10 @@ export default function Header() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="relative max-w-[800px]">
+        <motion.div
+          variants={itemVariants}
+          className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
+        >
           <h1 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
             Building{" "}
             <span className="relative">
@@ -177,23 +139,25 @@ export default function Header() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute right-[-650px] top-[-1000px] rotate-[-20deg] transform">
-        <div className="grid transform grid-cols-4 gap-4">
+      <div className="absolute right-[-200px] top-[-200px] hidden rotate-[-20deg] lg:block">
+        <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-10">
           {images.map((image, index) => (
             <motion.div
               key={index}
+              variants={itemVariants}
               style={{
                 y: imageY,
+                translateY:
+                  windowWidth >= 1024 ? `${(index % 4) * -50}px` : `${(index % 3) * -50}px`,
               }}
             >
-              <Image
-                src={image}
-                alt={`Technology Logo ${index + 1}`}
-                width={250}
-                height={250}
-                unoptimized={true}
-                className="relative rounded-2xl bg-background-primary-light object-cover p-5 opacity-50 dark:bg-background-primary-dark"
-              />
+              <div className="rounded-2xl bg-background-primary-light p-5 shadow-lg dark:bg-background-primary-dark">
+                <StackIcon
+                  grayscale={true}
+                  name={image}
+                  className="object-coverlg:max-w-[200px] relative"
+                />
+              </div>
             </motion.div>
           ))}
         </div>

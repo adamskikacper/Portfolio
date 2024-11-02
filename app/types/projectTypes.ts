@@ -1,9 +1,9 @@
-export type ProjectTypes = {
+export interface ProjectTypes {
   id: number;
   title: string;
   description: string;
   technologies: string[];
-  link: string;
-  imageUrl: string;
-  gifUrl: string;
-};
+  link?: string;
+  imageUrl?: string;
+  videoUrl?: string;
+}

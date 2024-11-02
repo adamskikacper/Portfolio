@@ -1,81 +1,109 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { ProjectTypes } from "../types/projectTypes";
-import { motion, useInView } from "framer-motion";
-import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
-import { useState, useRef } from "react";
+
+import HoverImage from "./hover-image";
+import { Eye, Github } from "lucide-react";
+import useStaggerAnimation from "../hooks/useStaggerAnimation";
+import { Button } from "@/components/ui/button";
 
 interface ProjectProps {
-  project: ProjectTypes;
-  isReversed?: boolean;
+  projects: ProjectTypes[];
 }
 
-const Project = ({ project, isReversed = false }: ProjectProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+const Project = ({ projects }: ProjectProps) => {
   const { containerVariants, itemVariants } = useStaggerAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
 
   return (
-    <motion.section
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
-      className={`relative flex w-full items-center gap-10 rounded-xl ${
-        isReversed ? "flex-row-reverse" : ""
-      }`}
-    >
-      <motion.div
-        className={`${isReversed ? "ml-8" : "mr-8"} max-w-2xl`}
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div variants={itemVariants} className="relative">
-          <h2 className="relative mb-4 inline-block bg-gradient-to-r from-zinc-500 to-zinc-700 bg-clip-text pb-2 text-3xl font-bold uppercase tracking-wider text-transparent dark:from-zinc-300 dark:to-zinc-500">
-            {project.title}
-          </h2>
-          <p className="mb-2">{project.description}</p>
-        </motion.div>
+    <ul className="timeline timeline-vertical timeline-snap-icon max-md:timeline-compact">
+      {projects.map((project, index) => (
+        <li variants={itemVariants} key={project.id}>
+          {index !== 0 && <hr />}
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <motion.div
+            variants={containerVariants}
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true, amount: 0.5 }}
+            className={`mb-20 ${index % 2 === 0 ? "timeline-start mr-10" : "timeline-end ml-10"} mb-10 ${index % 2 === 0 ? "md:text-end" : ""}`}
+          >
+            {project.imageUrl && (
+              <motion.div variants={itemVariants} className="mb-4 overflow-hidden rounded-lg">
+                <HoverImage
+                  imgSrc={project.imageUrl}
+                  videoSrc={project.videoUrl || ""}
+                  alt={`${project.title} preview`}
+                  width={900}
+                  height={900}
+                  buttonText="View Project"
+                  buttonIcon={Eye}
+                  type="video"
+                />
+              </motion.div>
+            )}
 
-        <motion.p variants={itemVariants} className="text-muted-foreground mb-8">
-          Looking for average? You&apos;re in the wrong place. But if you want web solutions that
-          make jaws drop and turn heads, let&apos;s talk.
-        </motion.p>
-      </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl dark:text-gray-300"
+            >
+              {project.title}
+            </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 1.6 }}
-        className="relative hidden h-full shadow-lg hover:cursor-pointer lg:block"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="relative h-full w-full">
-          <Image
-            src={isHovered ? project.gifUrl : project.imageUrl}
-            alt="Header Image"
-            width={500}
-            height={300}
-            unoptimized={true}
-            priority={true}
-            className="relative h-full w-full rounded-lg object-cover"
-          />
+            <motion.div variants={itemVariants} className="text-md">
+              {project.description}
+            </motion.div>
 
-          <div
-            className={`absolute top-0 h-full w-full rounded-lg bg-background-secondary-dark shadow-sm backdrop-blur-[15px] transition-all duration-200 ${
-              isHovered ? "opacity-10" : "opacity-0"
-            }`}
-          ></div>
-        </div>
-      </motion.div>
-    </motion.section>
+            <motion.div variants={itemVariants} className="mt-2 flex flex-wrap gap-2 text-xs">
+              {project.technologies.map((tech, techIndex) => (
+                <span key={techIndex} className="badge badge-outline">
+                  {tech}
+                </span>
+              ))}
+            </motion.div>
+            {project.link && (
+              <div className="mt-10 flex gap-5">
+                <motion.div variants={itemVariants}>
+                  <Button
+                    variant="outline"
+                    className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+                    size="lg"
+                  >
+                    <Eye className="mr-2 h-4 w-4" />
+                    View Project
+                  </Button>
+                </motion.div>
+
+                <motion.div variants={itemVariants}>
+                  <Button
+                    variant="outline"
+                    className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+                    size="lg"
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    Github
+                  </Button>
+                </motion.div>
+              </div>
+            )}
+          </motion.div>
+          {index !== projects.length - 1 && <hr />}
+        </li>
+      ))}
+    </ul>
   );
 };
 

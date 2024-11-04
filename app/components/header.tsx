@@ -2,17 +2,77 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, MailIcon } from "lucide-react";
-import Image from "next/image";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect } from "react";
 import { useState } from "react";
+import StackIcon from "tech-stack-icons";
 
 export default function Header() {
   const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
+  const images = [
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "nextjs2",
+    "js",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "nextjs2",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "js",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "typescript",
+    "reactjs",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+  ];
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -25,6 +85,7 @@ export default function Header() {
   const scale = useTransform(scrollY, [500, 0], [1, 0.9]);
   const borderRadius = useTransform(scrollY, [500, 0], [0, 28]);
   const { containerVariants, itemVariants } = useStaggerAnimation();
+  const imageY = useTransform(scrollY, [0, 2000], [0, -1200]);
 
   return (
     <motion.header
@@ -33,95 +94,98 @@ export default function Header() {
         scale: windowWidth >= 1024 ? scale : 1,
         borderRadius: windowWidth >= 1024 ? borderRadius : 0,
       }}
-      className="relative h-full gap-5 rounded-xl bg-white pb-[40px] pt-[130px] md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] lg:dark:bg-background-secondary-dark"
+      initial="hidden"
+      animate="visible"
+      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white bg-[url('/assets/images/header-light.svg')] bg-cover pb-[40px] pt-[130px] shadow-lg md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark dark:bg-[url('/assets/images/header-dark.svg')]"
     >
-      <div className="container grid h-full items-center lg:grid-cols-2">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <motion.div variants={itemVariants} className="relative">
-            <h1 className="max-w-[300px] text-4xl font-extrabold leading-tight sm:leading-[70px] md:max-w-[500px] md:text-6xl lg:max-w-[600px]">
-              Building{" "}
-              <span className="relative">
-                Modern{" "}
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 1, delay: 2 }}
-                  className="absolute bottom-[5px] left-0 z-[-1] h-[5px] bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[10px] md:h-[13px]"
-                ></motion.div>
-              </span>
-              Web Solutions
-            </h1>
-          </motion.div>
+      <motion.div
+        className="container z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div
+          variants={itemVariants}
+          className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
+        >
+          <h1 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
+            Building{" "}
+            <span className="relative">
+              Modern{" "}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1, delay: 2 }}
+                className="absolute bottom-[5px] left-0 z-[-1] h-[5px] bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[10px] md:h-[30px]"
+              ></motion.div>
+            </span>
+            Web Solutions
+          </h1>
 
-          <motion.div variants={itemVariants} className="relative">
-            <Image
-              src="/assets/images/avatar.jpg"
-              alt="Header Image"
-              width={300}
-              height={100}
-              className="m-auto my-4 max-h-[500px] w-full max-w-[500px] rounded-lg shadow-2xl sm:my-8 lg:hidden"
-            />
-          </motion.div>
-
-          <motion.p variants={itemVariants} className="my-4">
+          <motion.p variants={itemVariants} className="my-4 max-w-[600px]">
             Looking for average? You&apos;re in the wrong place. But if you want web solutions that
             make jaws drop and turn heads, let&apos;s talk.
           </motion.p>
-
-          <motion.div
-            variants={itemVariants}
-            className="mb-4 hidden flex-wrap gap-3 sm:mb-8 sm:flex"
-          >
-            {skills.map((skill) => (
-              <Badge
-                key={skill}
-                className="bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-500 px-[10px] py-[5px] text-text-primary-dark dark:from-zinc-400 dark:via-zinc-200 dark:to-zinc-400"
-              >
-                {skill}
-              </Badge>
-            ))}
-          </motion.div>
-
-          <motion.div variants={containerVariants} className="flex flex-col gap-4 sm:flex-row">
-            <motion.div variants={itemVariants}>
-              <Button
-                variant="outline"
-                className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                size="lg"
-              >
-                <Github className="h-4 w-4" />
-                Github
-              </Button>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <Button
-                variant="secondary"
-                className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                size="lg"
-              >
-                <MailIcon className="mr-1 h-4 w-4" />
-                Contact Me
-              </Button>
-            </motion.div>
-          </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.6 }}
-          className="relative lg:block"
-        >
-          {" "}
-          <Image
-            src="/assets/images/avatar.jpg"
-            alt="Header Image"
-            width={500}
-            height={300}
-            className="m-auto hidden rounded-lg shadow-2xl lg:block"
-          />
+        <motion.div variants={itemVariants} className="mb-4 hidden flex-wrap gap-3 sm:mb-8 sm:flex">
+          {skills.map((skill) => (
+            <Badge
+              key={skill}
+              className="bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-500 px-[10px] py-[5px] text-text-primary-dark dark:from-zinc-400 dark:via-zinc-200 dark:to-zinc-400"
+            >
+              {skill}
+            </Badge>
+          ))}
         </motion.div>
+
+        <motion.div variants={containerVariants} className="flex flex-col gap-4 sm:flex-row">
+          <motion.div variants={itemVariants}>
+            <Button
+              variant="outline"
+              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+              size="lg"
+            >
+              <Github className="h-4 w-4" />
+              Github
+            </Button>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Button
+              variant="secondary"
+              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+              size="lg"
+            >
+              <MailIcon className="mr-1 h-4 w-4" />
+              Contact Me
+            </Button>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      <div className="absolute right-[-500px] top-[-200px] hidden rotate-[-20deg] lg:block">
+        <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-10">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              style={{
+                y: imageY,
+                translateY:
+                  windowWidth >= 1024 ? `${(index % 4) * -50}px` : `${(index % 3) * -50}px`,
+              }}
+            >
+              <div className="rounded-2xl bg-background-primary-light p-5 shadow-lg dark:bg-background-primary-dark">
+                <StackIcon
+                  grayscale={true}
+                  name={image}
+                  className="object-coverlg:max-w-[200px] relative"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.header>
   );

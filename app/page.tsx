@@ -2,10 +2,11 @@
 
 import Navbar from "./components/navbar";
 import Header from "./components/header";
-import Project from "./components/project";
+
 import AboutMe from "./components/about-me";
 
 import type { ProjectTypes } from "./types/projectTypes";
+import Projects from "./components/project";
 
 const projects: ProjectTypes[] = [
   {
@@ -80,7 +81,7 @@ export default function Home() {
       </div>
 
       <div className="container py-10">
-        <Project projects={projects} />
+        <Projects projects={projects} />
       </div>
     </div>
   );

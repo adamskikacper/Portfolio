@@ -69,11 +69,11 @@ export default function Home() {
         <Header />
       </div>
 
-      <div className="container py-10">
+      <div className="container pb-20 pt-40">
         <AboutMe />
       </div>
 
-      <div className="container py-10">
+      <div className="container py-20">
         <h2 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
           Projects
         </h2>

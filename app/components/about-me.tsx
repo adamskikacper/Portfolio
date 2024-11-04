@@ -1,26 +1,21 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { DownloadIcon } from "lucide-react";
 import HoverImage from "./hover-image";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 
 const AboutMe = () => {
-  const { scrollY } = useScroll();
   const { containerVariants, itemVariants } = useStaggerAnimation();
-  const imageY = useTransform(scrollY, [2000, 0], [0, 200]);
-  const textY = useTransform(scrollY, [0, 1000], [0, 100]);
+
   return (
-    <section className="container mx-auto px-4 py-16">
+    <section className="">
       <div className="relative grid grid-cols-1 gap-8 md:grid-cols-2">
         <motion.div
           variants={containerVariants}
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true, amount: 0.5 }}
-          style={{
-            y: imageY,
-          }}
           className="mb-8 w-full md:mb-4 md:mr-8 lg:mr-12 lg:max-w-[500px] xl:max-w-[600px]"
         >
           <motion.h2
@@ -49,9 +44,6 @@ const AboutMe = () => {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true, amount: 0.5 }}
-          style={{
-            y: textY,
-          }}
           className="text-justify"
         >
           <motion.h2
@@ -86,12 +78,8 @@ const AboutMe = () => {
             className="mb-5 leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum
-            dolor consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor consectetur adipisicing
-            elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            dolor Quisquam, quos. Lorem ipsum dolor sit ame consectetur adipisicing elit. Quisquam,
+            quos. Lorem ipsum dolor consectetur adipisicing elit.
           </motion.p>
         </motion.div>
       </div>

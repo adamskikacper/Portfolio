@@ -35,7 +35,7 @@ const HoverImage = ({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl ${className}`}
+      className={`group relative overflow-hidden ${className} rounded-3xl shadow-xl`}
       onMouseEnter={() => type === "video" && setIsHovered(true)}
       onMouseLeave={() => type === "video" && setIsHovered(false)}
     >

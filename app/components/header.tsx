@@ -35,7 +35,32 @@ export default function Header() {
     "nextjs2",
     "tailwindcss",
     "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "js",
     "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
+    "typescript",
+    "typescript",
+    "reactjs",
+    "angular17",
+    "typescript",
+    "reactjs",
+    "js",
+    "nextjs2",
+    "tailwindcss",
     "typescript",
     "reactjs",
     "js",
@@ -139,7 +164,7 @@ export default function Header() {
         </motion.div>
       </motion.div>
 
-      <div className="absolute right-[-200px] top-[-200px] hidden rotate-[-20deg] lg:block">
+      <div className="absolute right-[-500px] top-[-200px] hidden rotate-[-20deg] lg:block">
         <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-10">
           {images.map((image, index) => (
             <motion.div

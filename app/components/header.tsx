@@ -2,12 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, MailIcon } from "lucide-react";
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StackIcon from "tech-stack-icons";
+import AnimatedDots from "./AnimatedDots";
 
 export default function Header() {
   const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
@@ -96,8 +95,31 @@ export default function Header() {
       }}
       initial="hidden"
       animate="visible"
-      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white bg-[url('/assets/images/header-light.svg')] bg-cover pb-[40px] pt-[130px] shadow-lg md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark dark:bg-[url('/assets/images/header-dark.svg')]"
+      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white pb-[40px] pt-[130px] shadow-lg md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
     >
+      <AnimatedDots
+        padding={40}
+        spacing={70}
+        dotSize="sm"
+        durationRange={{ min: 2, max: 4 }}
+        maxDelay={2}
+        animation={{
+          yOffset: -6,
+          opacityRange: [0.2, 0.8],
+          scaleRange: [0.2, 1.4],
+        }}
+        colors={{
+          light: {
+            from: "from-zinc-400",
+            to: "to-zinc-300",
+          },
+          dark: {
+            from: "dark:from-zinc-600",
+            to: "dark:to-zinc-500",
+          },
+        }}
+      />
+
       <motion.div
         className="container z-10"
         variants={containerVariants}
@@ -109,17 +131,7 @@ export default function Header() {
           className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
         >
           <h1 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
-            Building{" "}
-            <span className="relative">
-              Modern{" "}
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1, delay: 2 }}
-                className="absolute bottom-[5px] left-0 z-[-1] h-[5px] bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[10px] md:h-[30px]"
-              ></motion.div>
-            </span>
-            Web Solutions
+            Building Modern Web Solutions
           </h1>
 
           <motion.p variants={itemVariants} className="my-4 max-w-[600px]">

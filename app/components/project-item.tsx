@@ -7,7 +7,7 @@ import { ProjectTypes } from "../types/projectTypes";
 import HoverImage from "./hover-image";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import InteractiveBadge from "./interactive-badge";
 
 interface ProjectItemProps {
   project: ProjectTypes;
@@ -72,47 +72,45 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
         className={`mb-20 ${index % 2 === 0 ? "timeline-start mr-10" : "timeline-end ml-10"} mb-10 ${index % 2 === 0 ? "flex flex-col items-end md:text-end" : ""}`}
       >
         {project.imageUrl && (
-          <motion.div
-            variants={itemVariants}
-            className="mb-4 overflow-hidden rounded-3xl shadow-xl"
-          >
-            <HoverImage
-              imgSrc={project.imageUrl}
-              videoSrc={project.videoUrl || ""}
-              alt={`${project.title} preview`}
-              width={900}
-              height={900}
-              buttonText="View Project"
-              buttonIcon={Eye}
-              type="video"
-              className="shadow-lg"
-            />
+          <motion.div variants={itemVariants} className="w-full">
+            <div
+              className="mb-10 w-full overflow-hidden rounded-3xl shadow-xl"
+              style={{ height: "auto", aspectRatio: "16/9" }}
+            >
+              <HoverImage
+                imgSrc={project.imageUrl}
+                videoSrc={project.videoUrl || ""}
+                alt={`${project.title} preview`}
+                width={1920}
+                height={1080}
+                buttonText="View Project"
+                buttonIcon={Eye}
+                type="video"
+                className="h-full w-full rounded-3xl"
+                aspectRatio="aspect-video"
+              />
+            </div>
           </motion.div>
         )}
 
         <motion.div
           variants={itemVariants}
-          className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl dark:text-gray-300"
+          className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl lg:text-6xl dark:text-gray-300"
         >
           {project.title}
         </motion.div>
 
-        <motion.div variants={itemVariants} className="text-md text-justify">
+        <motion.div variants={itemVariants} className="text-md mb-5 text-justify">
           {project.description}
         </motion.div>
 
-        <motion.div variants={itemVariants} className="mt-2 flex flex-wrap gap-2 text-xs">
+        <motion.div variants={itemVariants} className="mb-5 flex flex-wrap gap-3 text-xs">
           {project.technologies.map((tech, techIndex) => (
-            <Badge
-              key={techIndex}
-              className="bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-500 px-[10px] py-[5px] text-text-primary-dark dark:from-zinc-400 dark:via-zinc-200 dark:to-zinc-400"
-            >
-              {tech}
-            </Badge>
+            <InteractiveBadge key={techIndex} text={tech} index={techIndex} />
           ))}
         </motion.div>
         {project.link && (
-          <div className="mt-10 flex gap-5">
+          <div className="flex gap-5">
             <motion.div variants={itemVariants}>
               <Button
                 variant="outline"

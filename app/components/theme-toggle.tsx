@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     // Check if we're on the client-side
     if (typeof window !== "undefined") {
       const storedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      setIsDark(storedTheme === "dark" || (!storedTheme && prefersDark));
+      // If there's no stored theme, default to dark
+      // If there is a stored theme, use it
+      setIsDark(storedTheme === null ? true : storedTheme === "dark");
     }
   }, []);
 

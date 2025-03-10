@@ -1,12 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Github, MailIcon } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect, useState } from "react";
+import { Github, MailIcon } from "lucide-react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
+import InteractiveBadge from "./interactive-badge";
 
 export default function Header() {
   const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
@@ -95,12 +95,12 @@ export default function Header() {
       }}
       initial="hidden"
       animate="visible"
-      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white pb-[40px] pt-[130px] shadow-lg md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
+      className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
     >
       <AnimatedDots
         padding={40}
         spacing={70}
-        dotSize="sm"
+        dotSize="md"
         durationRange={{ min: 2, max: 4 }}
         maxDelay={2}
         animation={{
@@ -130,8 +130,8 @@ export default function Header() {
           variants={itemVariants}
           className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
         >
-          <h1 className="mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
-            Building Modern Web Solutions
+          <h1 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-9xl dark:text-gray-300">
+            Hey, I&apos;m Kacper
           </h1>
 
           <motion.p variants={itemVariants} className="my-4 max-w-[600px]">
@@ -141,13 +141,8 @@ export default function Header() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mb-4 hidden flex-wrap gap-3 sm:mb-8 sm:flex">
-          {skills.map((skill) => (
-            <Badge
-              key={skill}
-              className="bg-gradient-to-r from-zinc-500 via-zinc-600 to-zinc-500 px-[10px] py-[5px] text-text-primary-dark dark:from-zinc-400 dark:via-zinc-200 dark:to-zinc-400"
-            >
-              {skill}
-            </Badge>
+          {skills.map((skill, skillIndex) => (
+            <InteractiveBadge key={skillIndex} text={skill} index={skillIndex} />
           ))}
         </motion.div>
 

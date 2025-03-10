@@ -21,7 +21,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
             return localStorage.getItem('theme');
           }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          // Default to dark mode instead of checking system preference
+          return 'dark';
         }
         
         const theme = getThemePreference();

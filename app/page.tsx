@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 
 import AboutMe from "./components/about-me";
+import ExperienceContainer from "./components/experience-container";
 
 import type { ProjectTypes } from "./types/projectTypes";
 import Projects from "./components/project";
@@ -73,6 +74,8 @@ export default function Home() {
       <div className="container pb-20 pt-40">
         <AboutMe />
       </div>
+
+      <ExperienceContainer />
 
       <div className="container">
         <h2 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300">

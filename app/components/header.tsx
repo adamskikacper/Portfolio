@@ -3,13 +3,11 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect, useState } from "react";
-import { Github, MailIcon } from "lucide-react";
+import { Github, MailIcon, FileText, ArrowRight, Linkedin } from "lucide-react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
-import InteractiveBadge from "./interactive-badge";
 
 export default function Header() {
-  const skills = ["React/Angular", "Next.js", "TypeScript", "Tailwind CSS"];
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
   const images = [
@@ -122,29 +120,27 @@ export default function Header() {
       />
 
       <motion.div
-        className="container z-10"
+        className="container z-10 m-0 max-w-[400px] sm:max-w-[500px] xl:max-w-[800px]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div
-          variants={itemVariants}
-          className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
-        >
-          <h1 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
+        <motion.div variants={itemVariants} className="relative">
+          <h1 className="text-shine mb-2 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-9xl dark:text-gray-300">
             Hey, I&apos;m Kacper
           </h1>
-
-          <motion.p variants={itemVariants} className="my-4 max-w-[600px]">
-            Looking for average? You&apos;re in the wrong place. But if you want web solutions that
-            make jaws drop and turn heads, let&apos;s talk.
-          </motion.p>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="mb-4 hidden flex-wrap gap-3 sm:mb-8 sm:flex">
-          {skills.map((skill, skillIndex) => (
-            <InteractiveBadge key={skillIndex} text={skill} index={skillIndex} />
-          ))}
+        <motion.div
+          variants={itemVariants}
+          className="mb-8 max-w-[550px] text-gray-600 dark:text-gray-400"
+        >
+          <p className="text-base leading-relaxed sm:text-xl">
+            A <span className="font-semibold text-yellow-500">frontend developer</span> working in{" "}
+            <span className="font-bold">Angular</span> with exposure to{" "}
+            <span className="font-bold">React</span> and always looking for new challenges and
+            opportunities to grow.
+          </p>
         </motion.div>
 
         <motion.div variants={containerVariants} className="flex flex-col gap-4 sm:flex-row">
@@ -154,19 +150,43 @@ export default function Header() {
               className="w-full transition-transform hover:scale-105 sm:w-[150px]"
               size="lg"
             >
-              <Github className="h-4 w-4" />
+              <Github className="mr-2 h-4 w-4" />
               Github
             </Button>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <Button
+              variant="outline"
+              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+              size="lg"
+            >
+              <Linkedin className="mr-2 h-4 w-4" />
+              LinkedIn
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        <motion.div variants={containerVariants} className="mt-4 flex flex-col gap-4 sm:flex-row">
+          <motion.div variants={itemVariants}>
+            <Button
               variant="secondary"
               className="w-full transition-transform hover:scale-105 sm:w-[150px]"
               size="lg"
             >
-              <MailIcon className="mr-1 h-4 w-4" />
+              <MailIcon className="mr-2 h-4 w-4" />
               Contact Me
+            </Button>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Button
+              variant="light"
+              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+              size="lg"
+            >
+              <FileText className="mr-2 h-4 w-4" />
+              Resume
             </Button>
           </motion.div>
         </motion.div>

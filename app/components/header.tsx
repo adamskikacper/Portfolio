@@ -99,14 +99,15 @@ export default function Header() {
     >
       <AnimatedDots
         padding={40}
-        spacing={70}
-        dotSize="md"
-        durationRange={{ min: 2, max: 4 }}
+        spacing={80}
+        dotSize="lg"
+        durationRange={{ min: 3, max: 5 }}
         maxDelay={2}
+        maxDots={120}
         animation={{
           yOffset: -6,
-          opacityRange: [0.2, 0.8],
-          scaleRange: [0.2, 1.4],
+          opacityRange: [0.2, 0.6],
+          scaleRange: [0.2, 1.2],
         }}
         colors={{
           light: {

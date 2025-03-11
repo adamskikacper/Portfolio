@@ -103,7 +103,7 @@ export default function Header() {
         dotSize="lg"
         durationRange={{ min: 3, max: 5 }}
         maxDelay={2}
-        maxDots={120}
+        maxDots={200}
         animation={{
           yOffset: -6,
           opacityRange: [0.2, 0.6],
@@ -131,7 +131,7 @@ export default function Header() {
           variants={itemVariants}
           className="relative max-w-[400px] sm:max-w-[500px] xl:max-w-[700px]"
         >
-          <h1 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-9xl dark:text-gray-300">
+          <h1 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-8xl dark:text-gray-300">
             Hey, I&apos;m Kacper
           </h1>
 

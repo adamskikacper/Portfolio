@@ -95,7 +95,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
 
         <motion.div
           variants={itemVariants}
-          className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl lg:text-6xl dark:text-gray-300"
+          className="text-shine mb-5 text-3xl font-extrabold uppercase text-gray-600 sm:text-3xl md:text-4xl lg:text-5xl dark:text-gray-300"
         >
           {project.title}
         </motion.div>

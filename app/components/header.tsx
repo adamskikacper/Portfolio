@@ -138,7 +138,7 @@ export default function Header() {
           <p className="text-base leading-relaxed sm:text-xl">
             A <span className="font-semibold text-yellow-500">frontend developer</span> working in{" "}
             <span className="font-bold">Angular</span> with exposure to{" "}
-            <span className="font-bold">React</span> and always looking for new challenges and
+            <span className="font-bold">React</span>, always looking for new challenges and
             opportunities to grow.
           </p>
         </motion.div>

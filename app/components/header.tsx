@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect, useState } from "react";
-import { Github, MailIcon, FileText, ArrowRight, Linkedin } from "lucide-react";
+import { Github, MailIcon, FileText, Linkedin } from "lucide-react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
 

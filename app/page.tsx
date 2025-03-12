@@ -9,7 +9,7 @@ import ContactForm from "./components/contact-form";
 
 import type { ProjectTypes } from "./types/projectTypes";
 import Projects from "./components/project";
-import Image from "next/image";
+
 const projects: ProjectTypes[] = [
   {
     id: 1,

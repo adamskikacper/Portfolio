@@ -34,10 +34,10 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
 
             <div className="mb-4">
               <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                {experience.position} {" • "}
+                {experience.position} {" @ "}
                 {experience.link ? (
                   <Link href={experience.link} target="_blank" className="hover:underline">
-                    {experience.company} <span className="inline-block">↗</span>
+                    {experience.company}
                   </Link>
                 ) : (
                   experience.company

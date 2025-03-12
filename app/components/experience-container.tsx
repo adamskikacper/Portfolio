@@ -17,7 +17,7 @@ const experienceData: ExperienceTypes = [
       "Conduct code reviews to maintain high code quality.",
       "Participate in daily stand-ups, sprint planning, and retrospectives.",
       "Develop reusable components using Storybook and microfrontends architecture.",
-      "Collaborate with cross-functional teams to deliver high-quality products.",
+      "Collaborate with cross-functional teams to deliver high-quality web apps.",
     ],
     technologies: [
       "Angular",

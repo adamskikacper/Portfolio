@@ -136,9 +136,9 @@ export default function Header() {
           className="mb-8 max-w-[550px] text-gray-600 dark:text-gray-400"
         >
           <p className="text-base leading-relaxed sm:text-xl">
-            A <span className="font-semibold text-yellow-500">frontend developer</span> working in{" "}
-            <span className="font-bold">Angular</span> with exposure to{" "}
-            <span className="font-bold">React</span>, always looking for new challenges and
+            A <span className="font-semibold text-yellow-500">frontend developer</span> with
+            experience in <span className="font-bold">Angular</span> and exposure to{" "}
+            <span className="font-bold">React/Next.js</span>, always looking for new challenges and
             opportunities to grow.
           </p>
         </motion.div>

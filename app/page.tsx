@@ -5,10 +5,11 @@ import Header from "./components/header";
 
 import AboutMe from "./components/about-me";
 import ExperienceContainer from "./components/experience-container";
+import ContactForm from "./components/contact-form";
 
 import type { ProjectTypes } from "./types/projectTypes";
 import Projects from "./components/project";
-
+import Image from "next/image";
 const projects: ProjectTypes[] = [
   {
     id: 1,
@@ -85,6 +86,10 @@ export default function Home() {
 
       <div className="container py-10">
         <Projects projects={projects} />
+      </div>
+
+      <div className="container relative">
+        <ContactForm />
       </div>
     </div>
   );

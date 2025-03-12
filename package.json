@@ -11,19 +11,27 @@
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
+    "@formspree/react": "^2.5.4",
+    "@hookform/resolvers": "^4.1.3",
+    "@lottiefiles/dotlottie-react": "^0.13.2",
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@sendgrid/mail": "^8.1.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.9",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.453.0",
     "next": "^14.2.15",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.54.2",
     "react-intersection-observer": "^9.16.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
-    "tech-stack-icons": "^2.1.0"
+    "tech-stack-icons": "^2.1.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

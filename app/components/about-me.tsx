@@ -125,29 +125,32 @@ const AboutMe = () => {
               variants={itemVariants}
               className="eading-relaxed sm:text-md mb-5 text-gray-600 dark:text-gray-300"
             >
-              As a Front-End Developer with over 2 years of experience, I specialise in building
-              responsive, user-friendly web applications, focusing on translating designs into
-              clean, intuitive interfaces.
+              With over two years of hands-on experience as a Front-End Developer, I&apos;m
+              passionate about turning design ideas into interactive, engaging digital experiences.
+              For me, it&apos;s not just about building websites — it&apos;s about creating
+              memorable experiences that leave a lasting impact. And I truly hope that&apos;s
+              exactly what my work can do for you!
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              What sets me apart is my attention to the smallest details — both in how things work
-              and how they look. I care a lot about the visual side of things, making sure that
-              everything is well-aligned, balanced, and feels just right. From spacing and layout to
-              subtle animations, I always aim to create interfaces that are not only functional but
-              also visually polished and enjoyable to use.
+              On a day-to-day basis, I work with Angular, and I&apos;ve also had the chance to
+              explore React through a variety of personal projects. Currently, I&apos;m diving
+              deeper into React & Next.js to sharpen my skills and make sure I&apos;m ahead of the
+              curve. I&apos;ve also got my eyes on Web3 development, and if the right opportunity
+              comes along, I&apos;m all in.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              The same commitment to detail that&apos;s reflected in my past work is what I bring to
-              every project. You can trust that this level of care and dedication will be reflected
-              in yours as well.
+              When I&apos;m not coding, you&apos;ll find me diving into Web3 and crypto investments
+              something, I’ve been passionate about for years. I also enjoy watching YouTube and
+              documentaries to stay updated on what&apos;s happening around the world — it&apos;s
+              all about keeping that curiosity alive and learning something new every day.
             </motion.p>
 
             <motion.p

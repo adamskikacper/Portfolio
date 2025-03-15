@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Eye, Github } from "lucide-react";
 import { ProjectTypes } from "../types/projectTypes";
 import HoverImage from "./hover-image";
@@ -23,6 +23,14 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
     margin: "100px 0px 0px 0px",
   });
   const { containerVariants, itemVariants } = useStaggerAnimation();
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <li key={project.id} ref={ref}>
@@ -52,7 +60,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
           }}
           transition={{
             duration: 0.3,
-            delay: 0.2,
+            delay: 0.5,
             ease: "backOut",
           }}
         >
@@ -115,7 +123,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
               <Button
                 variant="outline"
                 className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                size="lg"
+                size={windowWidth < 640 ? "sm" : "lg"}
               >
                 <Eye className="mr-2 h-4 w-4" />
                 View Project
@@ -126,7 +134,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
               <Button
                 variant="outline"
                 className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                size="lg"
+                size={windowWidth < 640 ? "sm" : "lg"}
               >
                 <Github className="mr-2 h-4 w-4" />
                 Github

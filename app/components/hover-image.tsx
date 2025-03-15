@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { LucideIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface HoverImageProps {
   imgSrc: string;
@@ -36,6 +37,14 @@ const HoverImage = ({
   const [isHovered, setIsHovered] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Effect to handle video playback based on hover state
   useEffect(() => {
@@ -67,15 +76,11 @@ const HoverImage = ({
   }, [isHovered, videoSrc, videoLoaded, type]);
 
   const handleMouseEnter = () => {
-    if (type === "video") {
-      setIsHovered(true);
-    }
+    setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    if (type === "video") {
-      setIsHovered(false);
-    }
+    setIsHovered(false);
   };
 
   return (
@@ -84,6 +89,26 @@ const HoverImage = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <AnimatePresence>
+        {isHovered && (
+          <motion.div
+            className="absolute left-0 top-0 z-0 h-[500px] w-[500px] rotate-180"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src="/assets/images/circles.svg"
+              fill
+              sizes="500px"
+              alt="Decorative circles"
+              style={{ objectFit: "contain" }}
+              className="translate-x-[-50%] translate-y-[-50%]"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       {type === "image" ? (
         <div className="h-full w-full overflow-hidden">
           <Image
@@ -122,7 +147,7 @@ const HoverImage = ({
           <Button
             variant="outline"
             className="w-[150px] text-white transition-transform hover:scale-105"
-            size="lg"
+            size={windowWidth < 640 ? "sm" : "lg"}
             onClick={onButtonClick}
           >
             {ButtonIcon && <ButtonIcon className="mr-1 h-4 w-4" />}

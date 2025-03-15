@@ -9,7 +9,8 @@ import ContactForm from "./components/contact-form";
 
 import type { ProjectTypes } from "./types/projectTypes";
 import Projects from "./components/project";
-
+import { motion } from "framer-motion";
+import Image from "next/image";
 const projects: ProjectTypes[] = [
   {
     id: 1,
@@ -65,30 +66,26 @@ const projects: ProjectTypes[] = [
 
 export default function Home() {
   return (
-    <div className="bg-background-primary-light text-text-primary-light dark:bg-background-primary-dark dark:text-text-primary-dark">
+    <div className="relativeoverflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
       <Navbar />
 
-      <div className="relative lg:dark:bg-background-primary-dark">
+      <div id="home" className="relative lg:dark:bg-background-primary-dark">
         <Header />
       </div>
 
-      <div className="container pb-20 pt-40">
+      <div id="about" className="container pb-10 pt-20 lg:pb-20 lg:pt-40">
         <AboutMe />
       </div>
 
-      <ExperienceContainer />
-
-      <div className="container">
-        <h2 className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300">
-          Projects
-        </h2>
+      <div id="experience" className="container py-10 lg:py-20">
+        <ExperienceContainer />
       </div>
 
-      <div className="container py-10">
+      <div className="container relative py-10">
         <Projects projects={projects} />
       </div>
 
-      <div className="container relative">
+      <div id="contact" className="container relative">
         <ContactForm />
       </div>
     </div>

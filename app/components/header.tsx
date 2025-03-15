@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { useEffect, useState } from "react";
-import { Github, MailIcon, FileText, Linkedin } from "lucide-react";
+import { Github, MailIcon, Linkedin } from "lucide-react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
-
+import Image from "next/image";
 export default function Header() {
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
@@ -79,10 +79,21 @@ export default function Header() {
   }, []);
 
   const headerY = useTransform(scrollY, [0, 500], [0, -150]);
-  const scale = useTransform(scrollY, [500, 0], [1, 0.9]);
+  const scale = useTransform(scrollY, [500, 0], [1, 0.85]);
   const borderRadius = useTransform(scrollY, [500, 0], [0, 28]);
   const { containerVariants, itemVariants } = useStaggerAnimation();
   const imageY = useTransform(scrollY, [0, 2000], [0, -1200]);
+
+  const handleGithubClick = () => {
+    window.open("https://github.com/adamskikacper", "_blank", "noopener,noreferrer");
+  };
+
+  const handleContactClick = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.header
@@ -95,6 +106,7 @@ export default function Header() {
       animate="visible"
       className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
     >
+      <div className="absolute inset-0 z-10 rounded-xl bg-black/20 dark:bg-black/30"></div>
       <AnimatedDots
         padding={40}
         spacing={80}
@@ -120,35 +132,37 @@ export default function Header() {
       />
 
       <motion.div
-        className="container z-10 m-0 max-w-[400px] sm:max-w-[500px] xl:max-w-[800px]"
+        className="container z-10 flex flex-col items-center lg:m-0 lg:w-auto lg:items-start xl:mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.div variants={itemVariants} className="relative">
-          <h1 className="text-shine mb-2 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-9xl dark:text-gray-300">
+          <h1 className="text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-8xl xl:max-w-[540px] xl:text-9xl dark:text-gray-300">
             Hey, I&apos;m Kacper
           </h1>
         </motion.div>
 
         <motion.div
           variants={itemVariants}
-          className="mb-8 max-w-[550px] text-gray-600 dark:text-gray-400"
+          className="mb-8 max-w-[280px] text-gray-600 sm:max-w-[370px] lg:max-w-[402px] xl:max-w-[540px] dark:text-gray-400"
         >
-          <p className="text-base leading-relaxed sm:text-xl">
-            A <span className="font-semibold text-yellow-500">frontend developer</span> with
-            experience in <span className="font-bold">Angular</span> and exposure to{" "}
-            <span className="font-bold">React/Next.js</span>, always looking for new challenges and
-            opportunities to grow.
+          <p className="text-center text-sm leading-relaxed lg:text-lg">
+            I create experiences where every <span className="font-bold">pixel</span> has a{" "}
+            <span className="font-bold">purpose</span> — experiences I&apos;d want to use myself.
           </p>
         </motion.div>
 
-        <motion.div variants={containerVariants} className="flex flex-col gap-4 sm:flex-row">
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-2 gap-4 md:flex-col lg:mx-auto"
+        >
           <motion.div variants={itemVariants}>
             <Button
               variant="outline"
-              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-              size="lg"
+              className="w-full transition-transform hover:scale-105"
+              size={windowWidth < 640 ? "sm" : "lg"}
+              onClick={handleGithubClick}
             >
               <Github className="mr-2 h-4 w-4" />
               Github
@@ -157,36 +171,13 @@ export default function Header() {
 
           <motion.div variants={itemVariants}>
             <Button
-              variant="outline"
-              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-              size="lg"
-            >
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
-            </Button>
-          </motion.div>
-        </motion.div>
-
-        <motion.div variants={containerVariants} className="mt-4 flex flex-col gap-4 sm:flex-row">
-          <motion.div variants={itemVariants}>
-            <Button
               variant="secondary"
-              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-              size="lg"
+              className="w-full transition-transform hover:scale-105"
+              size={windowWidth < 640 ? "sm" : "lg"}
+              onClick={handleContactClick}
             >
               <MailIcon className="mr-2 h-4 w-4" />
               Contact Me
-            </Button>
-          </motion.div>
-
-          <motion.div variants={itemVariants}>
-            <Button
-              variant="light"
-              className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-              size="lg"
-            >
-              <FileText className="mr-2 h-4 w-4" />
-              Resume
             </Button>
           </motion.div>
         </motion.div>

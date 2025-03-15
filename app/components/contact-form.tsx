@@ -5,8 +5,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useForm as useFormspree } from "@formspree/react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Image from "next/image";
+import useStaggerAnimation from "../hooks/useStaggerAnimation";
 
 // Define the form schema with Zod
 const formSchema = z.object({
@@ -24,7 +26,8 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animationContainerRef = useRef(null);
   const isInView = useInView(animationContainerRef, { once: true, amount: 0.3 });
-
+  const [isFormHovered, setIsFormHovered] = useState(false);
+  const { itemVariants } = useStaggerAnimation();
   // Initialize react-hook-form with zod validation
   const {
     register,
@@ -61,14 +64,20 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="contact-section py-20">
       <div className="container">
         <motion.div className="mx-auto max-w-4xl">
           <div className="mb-8">
             <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-              <h2 className="text-shine text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300">
+              <motion.h2
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="text-shine text-5xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300"
+              >
                 Get In Touch
-              </h2>
+              </motion.h2>
               <motion.div
                 ref={animationContainerRef}
                 whileInView="visible"
@@ -101,13 +110,39 @@ export default function ContactForm() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative rounded-3xl border border-gray-800/30 bg-background-secondary-light/80 p-8 backdrop-blur-sm dark:border-gray-700/30 dark:bg-background-secondary-dark/80"
+            className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-light/80 p-8 backdrop-blur-sm dark:border-gray-700/30 dark:bg-background-secondary-dark/80"
+            onMouseEnter={() => setIsFormHovered(true)}
+            onMouseLeave={() => setIsFormHovered(false)}
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
           >
+            <AnimatePresence>
+              {isFormHovered && (
+                <>
+                  <motion.div
+                    className="absolute bottom-0 right-0 z-0 h-[500px] w-[500px]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src="/assets/images/circles.svg"
+                      fill
+                      sizes="500px"
+                      alt="Decorative circles"
+                      style={{ objectFit: "contain" }}
+                      className="translate-x-[50%] translate-y-[50%] rotate-180"
+                    />
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+
             {formspreeState.succeeded ? (
-              <div className="flex flex-col items-center justify-center space-y-4 py-12 text-center">
+              <div className="relative z-10 flex flex-col items-center justify-center space-y-4 py-12 text-center">
                 <div className="rounded-full bg-green-100 p-3 dark:bg-green-900">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +171,7 @@ export default function ContactForm() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="relative z-10 space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="name" className="block text-sm font-medium">

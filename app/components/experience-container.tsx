@@ -10,30 +10,23 @@ const experienceData: ExperienceTypes = [
     id: 1,
     company: "Motivait Limited",
     position: "Frontend Developer",
-    period: "08.2022 - Present",
+    period: "07.2022 - Present",
     bulletPoints: [
-      "Develop responsive web applications using Angular, TypeScript, and Angular Material.",
-      "Translate Figma designs into pixel-perfect, functional user interfaces.",
+      "Translate Figma designs into pixel-perfect user interfaces.",
+      "Develop reusable components using Storybook and microfrontends architecture.",
       "Conduct code reviews to maintain high code quality.",
       "Participate in daily stand-ups, sprint planning, and retrospectives.",
-      "Develop reusable components using Storybook and microfrontends architecture.",
       "Collaborate with cross-functional teams to deliver high-quality web apps.",
     ],
     technologies: [
       "Angular",
-      "Angular Material",
       "TypeScript",
-      "Anime.js",
-      "Storybook",
-      "JWT",
-      "Strapi CMS",
-      "i18n",
-      "Google Analytics",
+      "Angular Material",
       "BEM",
-      "Git",
-      "Jira",
-      "Figma",
-      "Lighthouse",
+      "SCSS",
+      "Microfrontends",
+      "Storybook",
+      "Headless CMS",
     ],
     link: "https://motivait.net",
   },
@@ -43,13 +36,13 @@ const ExperienceContainer = () => {
   const { itemVariants } = useStaggerAnimation();
 
   return (
-    <div className="container py-20">
+    <div>
       <motion.h2
         variants={itemVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="text-shine mb-10 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300"
+        className="text-shine mb-10 text-5xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300"
       >
         Experience
       </motion.h2>

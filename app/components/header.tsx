@@ -1,12 +1,11 @@
 "use client";
+import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
-import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
+import { Github, MailIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Github, MailIcon, Linkedin } from "lucide-react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
-import Image from "next/image";
 export default function Header() {
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
@@ -137,7 +136,10 @@ export default function Header() {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="relative">
+        <motion.div
+          variants={itemVariants}
+          className="relative"
+        >
           <h1 className="text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-8xl xl:max-w-[540px] xl:text-9xl dark:text-gray-300">
             Hey, I&apos;m Kacper
           </h1>

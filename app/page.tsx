@@ -1,16 +1,14 @@
 "use client";
 
-import Navbar from "./components/navbar";
 import Header from "./components/header";
+import Navbar from "./components/navbar";
 
 import AboutMe from "./components/about-me";
-import ExperienceContainer from "./components/experience-container";
 import ContactForm from "./components/contact-form";
+import ExperienceContainer from "./components/experience-container";
 
-import type { ProjectTypes } from "./types/projectTypes";
 import Projects from "./components/project";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import type { ProjectTypes } from "./types/projectTypes";
 const projects: ProjectTypes[] = [
   {
     id: 1,
@@ -69,15 +67,24 @@ export default function Home() {
     <div className="relativeoverflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
       <Navbar />
 
-      <div id="home" className="relative lg:dark:bg-background-primary-dark">
+      <div
+        id="home"
+        className="relative lg:dark:bg-background-primary-dark"
+      >
         <Header />
       </div>
 
-      <div id="about" className="container pb-10 pt-20 lg:pb-20 lg:pt-40">
+      <div
+        id="about"
+        className="container pb-10 pt-20 lg:pb-20 lg:pt-40"
+      >
         <AboutMe />
       </div>
 
-      <div id="experience" className="container py-10 lg:py-20">
+      <div
+        id="experience"
+        className="container py-10 lg:py-20"
+      >
         <ExperienceContainer />
       </div>
 
@@ -85,7 +92,10 @@ export default function Home() {
         <Projects projects={projects} />
       </div>
 
-      <div id="contact" className="container relative">
+      <div
+        id="contact"
+        className="container relative"
+      >
         <ContactForm />
       </div>
     </div>

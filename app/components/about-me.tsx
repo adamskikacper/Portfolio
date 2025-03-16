@@ -2,11 +2,13 @@
 
 import { motion } from "framer-motion";
 import { DownloadIcon, Linkedin } from "lucide-react";
-import HoverImage from "./hover-image";
-import useStaggerAnimation from "../hooks/useStaggerAnimation";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
+
+import useStaggerAnimation from "../hooks/useStaggerAnimation";
+
+import HoverImage from "./hover-image";
 
 const AboutMe = () => {
   const { containerVariants, itemVariants } = useStaggerAnimation();
@@ -32,7 +34,10 @@ const AboutMe = () => {
         viewport={{ once: true, amount: 0.5 }}
         className="w-full lg:max-w-[500px] xl:max-w-[600px]"
       >
-        <motion.div variants={itemVariants} className="relative">
+        <motion.div
+          variants={itemVariants}
+          className="relative"
+        >
           <motion.div
             variants={itemVariants}
             className="w-full overflow-hidden rounded-3xl shadow-xl"
@@ -40,7 +45,7 @@ const AboutMe = () => {
           >
             <HoverImage
               imgSrc="/assets/images/avatar.jpg"
-              videoSrc={""}
+              videoSrc=""
               type="image"
               alt="Header Image"
               width={1000}

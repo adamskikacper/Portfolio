@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import ThemeToggle from "./theme-toggle";
 
 const navItems = [
@@ -152,12 +152,15 @@ export default function Navbar() {
             visible: { y: 0 },
           }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="container relative mx-auto mt-4 overflow-hidden rounded-[15px] border border-border-light bg-background-primary-light bg-opacity-70 shadow-sm backdrop-blur-[5px] dark:border-border-dark/50 dark:bg-background-primary-dark dark:bg-opacity-70"
+          className="relative mx-auto mt-4 overflow-hidden rounded-[15px] border border-border-light bg-background-primary-light bg-opacity-70 shadow-sm backdrop-blur-[5px] dark:border-border-dark/50 dark:bg-background-primary-dark dark:bg-opacity-70"
         >
           <div className="px-1 py-1">
             <div className="flex items-center justify-between p-2">
               <div className="flex items-center">
-                <a href="#home" className="flex items-center">
+                <a
+                  href="#home"
+                  className="flex items-center"
+                >
                   <p className="text-sm font-bold text-text-primary-light dark:text-text-primary-dark">
                     Kacper Adamski
                   </p>
@@ -245,7 +248,11 @@ export default function Navbar() {
 
             <div className="flex h-full w-full flex-col items-center justify-center space-y-10 px-4">
               {navItems.map((item) => (
-                <motion.div key={item.name} variants={itemVariants} className="w-full max-w-xs">
+                <motion.div
+                  key={item.name}
+                  variants={itemVariants}
+                  className="w-full max-w-xs"
+                >
                   <motion.a
                     href={item.href}
                     className="relative flex w-full justify-center overflow-hidden rounded-lg py-4 text-center text-2xl font-medium text-text-primary-light transition-all duration-300 ease-in-out dark:text-text-primary-dark"

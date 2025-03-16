@@ -64,7 +64,7 @@ const projects: ProjectTypes[] = [
 
 export default function Home() {
   return (
-    <div className="relativeoverflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
+    <div className="relative overflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
       <Navbar />
 
       <div
@@ -88,13 +88,16 @@ export default function Home() {
         <ExperienceContainer />
       </div>
 
-      <div className="container relative py-10">
+      <div
+        id="projects"
+        className="container relative py-10"
+      >
         <Projects projects={projects} />
       </div>
 
       <div
         id="contact"
-        className="container relative"
+        className="container relative py-10 lg:py-20"
       >
         <ContactForm />
       </div>

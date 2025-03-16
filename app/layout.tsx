@@ -11,7 +11,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body className={`${inter.className} `}>
         <script
           dangerouslySetInnerHTML={{
@@ -24,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           // Default to dark mode instead of checking system preference
           return 'dark';
         }
-        
+
         const theme = getThemePreference();
         document.documentElement.classList.toggle('dark', theme === 'dark');
       })();

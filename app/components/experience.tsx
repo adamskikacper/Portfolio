@@ -1,12 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ExperienceTypes } from "../types/experienceTypes";
 import InteractiveBadge from "./interactive-badge";
-import Image from "next/image";
-import { useState } from "react";
 
 interface ExperienceProps {
   experiences: ExperienceTypes;
@@ -17,7 +17,7 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="py-10">
+    <section>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -29,7 +29,7 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
           <motion.div
             key={experience.id}
             variants={itemVariants}
-            className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-8 backdrop-blur-sm dark:border-gray-700/30"
+            className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm md:p-8 dark:border-gray-700/30"
             onMouseEnter={() => setHoveredId(experience.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
@@ -64,7 +64,11 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
                   {experience.position} {" @ "}
                   {experience.link ? (
-                    <Link href={experience.link} target="_blank" className="hover:underline">
+                    <Link
+                      href={experience.link}
+                      target="_blank"
+                      className="hover:underline"
+                    >
                       {experience.company}
                     </Link>
                   ) : (
@@ -85,7 +89,11 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
 
               <div className="flex flex-wrap gap-2">
                 {experience.technologies.map((tech, index) => (
-                  <InteractiveBadge key={tech} text={tech} index={index} />
+                  <InteractiveBadge
+                    key={tech}
+                    text={tech}
+                    index={index}
+                  />
                 ))}
               </div>
             </div>

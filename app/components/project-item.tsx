@@ -9,7 +9,7 @@ import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ProjectTypes } from "../types/projectTypes";
 import HoverImage from "./hover-image";
 import InteractiveBadge from "./interactive-badge";
-
+import { StatusBadge, StatusType } from "./status-badge";
 interface ProjectItemProps {
   project: ProjectTypes;
   index: number;
@@ -49,10 +49,10 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
             ease: "easeOut",
           }}
           style={{ transformOrigin: "top" }}
-          className="hidden bg-background-secondary-dark/20 p-1 md:block dark:bg-background-secondary-light/20"
+          className="hidden bg-background-secondary-dark/20 p-1 lg:block dark:bg-background-secondary-light/20"
         />
       )}
-      <div className="timeline-middle hidden md:block">
+      <div className="timeline-middle hidden lg:block">
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -82,13 +82,13 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
         whileInView="visible"
         initial="hidden"
         viewport={{ once: true, amount: 0.5 }}
-        className={`!m-0 w-full lg:w-auto ${index % 2 === 0 ? "timeline-start mr-2 lg:mr-5" : "timeline-end ml-2 lg:ml-5"} `}
+        className={`!m-0 w-full lg:w-auto ${index % 2 === 0 ? "timeline-start mr-2 lg:pr-5" : "timeline-end ml-2 lg:pl-5"} `}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <motion.div
           variants={itemVariants}
-          className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm md:p-8 dark:border-gray-700/30"
+          className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm lg:p-8 dark:border-gray-700/30"
         >
           <AnimatePresence>
             {isHovered && (
@@ -137,6 +137,13 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
               </motion.div>
             )}
 
+            <motion.div
+              variants={itemVariants}
+              className="absolute right-4 top-4 max-w-fit"
+            >
+              {project.status && <StatusBadge status={project.status as StatusType} />}
+            </motion.div>
+
             <motion.h3
               variants={itemVariants}
               className="text-shine mb-5 text-3xl font-bold text-gray-800 dark:text-gray-100"
@@ -146,7 +153,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
 
             <motion.p
               variants={itemVariants}
-              className="mb-5 text-gray-600 dark:text-gray-300"
+              className="mb-5 text-justify text-gray-600 dark:text-gray-300"
             >
               {project.description}
             </motion.p>
@@ -202,7 +209,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
             ease: "easeOut",
           }}
           style={{ transformOrigin: "top" }}
-          className="hidden bg-background-secondary-dark/20 p-1 md:block dark:bg-background-secondary-light/20"
+          className="hidden bg-background-secondary-dark/20 p-1 lg:block dark:bg-background-secondary-light/20"
         />
       )}
     </li>

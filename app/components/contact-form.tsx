@@ -109,7 +109,7 @@ export default function ContactForm() {
         </div>
 
         <motion.div
-          className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-light/80 p-4 backdrop-blur-sm md:p-8 dark:border-gray-700/30 dark:bg-background-secondary-dark/80"
+          className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-light/80 p-4 backdrop-blur-sm lg:p-8 dark:border-gray-700/30 dark:bg-background-secondary-dark/80"
           onMouseEnter={() => setIsFormHovered(true)}
           onMouseLeave={() => setIsFormHovered(false)}
           variants={itemVariants}

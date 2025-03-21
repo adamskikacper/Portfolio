@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 interface HoverImageProps {
   imgSrc: string;
@@ -137,7 +137,13 @@ const HoverImage = ({
               isHovered ? "opacity-100" : "opacity-0"
             }`}
           >
-            <video ref={videoRef} className="h-full w-full object-cover" muted playsInline loop />
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover"
+              muted
+              playsInline
+              loop
+            />
           </div>
         </div>
       )}

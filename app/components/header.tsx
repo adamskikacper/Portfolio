@@ -105,7 +105,6 @@ export default function Header() {
       animate="visible"
       className="relative flex h-screen items-center overflow-hidden rounded-xl bg-white md:gap-20 lg:top-[90px] lg:h-[calc(100vh-97px)] dark:bg-background-secondary-dark"
     >
-      <div className="absolute inset-0 z-10 rounded-xl bg-black/20 dark:bg-black/30"></div>
       <AnimatedDots
         padding={40}
         spacing={80}

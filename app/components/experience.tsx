@@ -29,7 +29,7 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
           <motion.div
             key={experience.id}
             variants={itemVariants}
-            className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm md:p-8 dark:border-gray-700/30"
+            className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm lg:p-8 dark:border-gray-700/30"
             onMouseEnter={() => setHoveredId(experience.id)}
             onMouseLeave={() => setHoveredId(null)}
           >

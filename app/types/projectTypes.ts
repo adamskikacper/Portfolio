@@ -6,4 +6,5 @@ export interface ProjectTypes {
   link?: string;
   imageUrl?: string;
   videoUrl?: string;
+  status?: "ongoing" | "recent" | "legacy";
 }

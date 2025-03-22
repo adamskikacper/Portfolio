@@ -12,7 +12,7 @@ import type { ProjectTypes } from "./types/projectTypes";
 const projects: ProjectTypes[] = [
   {
     id: 1,
-    title: "Decentralised Freelance Platform",
+    title: "Decentralised Freelance Marketplace",
     description:
       "A decentralised freelance marketplace where clients can post jobs and freelancers submit bids in Ethereum to complete the job. Once a bid is accepted, a smart contract is created to securely hold the payment in escrow. When job is completed, the freelancer submits the work for approval, and upon client satisfaction, the smart contract automatically releases the payment.",
     technologies: [

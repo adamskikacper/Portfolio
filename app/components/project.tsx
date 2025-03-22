@@ -29,7 +29,7 @@ const Projects = ({ projects }: ProjectProps) => {
         viewport={{ once: true, amount: 0.1 }}
         className="relative"
       >
-        <ul className="timeline timeline-vertical timeline-snap-icon flex flex-col gap-5 max-lg:timeline-compact lg:gap-0">
+        <ul className="timeline timeline-vertical timeline-snap-icon z-10 mb-10 flex flex-col gap-5 max-lg:timeline-compact lg:gap-0">
           {projects.map((project, index) => (
             <ProjectItem
               key={project.id}

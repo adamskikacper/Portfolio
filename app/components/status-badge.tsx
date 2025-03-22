@@ -38,7 +38,7 @@ export const StatusBadge = ({ status, className = "" }: StatusBadgeProps) => {
 
   return (
     <div
-      className={`flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${config.classes} ${className}`}
+      className={`flex items-center gap-1.5 rounded-lg border px-4 py-2 text-xs font-medium ${config.classes} ${className}`}
     >
       <Icon className="h-3.5 w-3.5" />
       <span>{config.text}</span>

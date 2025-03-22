@@ -87,10 +87,10 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              I graduated from Northumbria University with a 1st class honours degree, and I&apos;ve
-              continued working professionally in the field ever since, including throughout my time
-              at university. With nearly 3 years of professional experience, I&apos;ve worked
-              primarily with Angular but am now diving deeper into React & Next.js.
+              I graduated from Northumbria University with a 1st class honours degree and have
+              continued working professionally in the field, both during and after my studies. With
+              nearly 3 years of professional experience, I&apos;ve worked primarily with Angular but
+              am now diving deeper into React & Next.js.
             </motion.p>
             <motion.p
               variants={itemVariants}

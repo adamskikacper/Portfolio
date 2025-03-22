@@ -196,7 +196,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
               <ScrollingBadges technologies={project.technologies} />
             </motion.div>
 
-            {project.link && (
+            {project.projectLink && (
               <motion.div
                 variants={itemVariants}
                 className="mt-6 flex gap-5"
@@ -205,6 +205,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                   variant="outline"
                   className="w-full transition-transform hover:scale-105 sm:w-[150px]"
                   size={windowWidth < 640 ? "sm" : "lg"}
+                  onClick={() => window.open(project.projectLink, "_blank")}
                 >
                   <Eye className="mr-2 h-4 w-4" />
                   View Project
@@ -214,6 +215,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                   variant="outline"
                   className="w-full transition-transform hover:scale-105 sm:w-[150px]"
                   size={windowWidth < 640 ? "sm" : "lg"}
+                  onClick={() => window.open(project.githubLink, "_blank")}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   Github

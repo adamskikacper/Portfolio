@@ -3,7 +3,8 @@ export interface ProjectTypes {
   title: string;
   description: string;
   technologies: string[];
-  link?: string;
+  projectLink?: string;
+  githubLink?: string;
   imageUrl?: string | null;
   videoUrl?: string | null;
   status?: "ongoing" | "recent" | "legacy";

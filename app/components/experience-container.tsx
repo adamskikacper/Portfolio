@@ -14,9 +14,9 @@ const experienceData: ExperienceTypes = [
     bulletPoints: [
       "Translate Figma designs into pixel-perfect user interfaces.",
       "Develop reusable components using Storybook and microfrontends architecture.",
-      "Conduct code reviews to maintain high code quality.",
-      "Participate in daily stand-ups, sprint planning, and retrospectives.",
       "Collaborate with cross-functional teams to deliver high-quality web apps.",
+      "Conduct code reviews to maintain code quality.",
+      "Work within Agile, contributing to sprint planning, daily stand-ups, and retrospectives.",
     ],
     technologies: [
       "Angular",

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Eye, Github } from "lucide-react";
 import Image from "next/image";
@@ -8,8 +9,9 @@ import { useEffect, useRef, useState } from "react";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ProjectTypes } from "../types/projectTypes";
 import HoverImage from "./hover-image";
-import InteractiveBadge from "./interactive-badge";
+import ScrollingBadges from "./scrolling-badges";
 import { StatusBadge, StatusType } from "./status-badge";
+
 interface ProjectItemProps {
   project: ProjectTypes;
   index: number;
@@ -112,7 +114,24 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
           </AnimatePresence>
 
           <div className="relative z-10">
-            {project.imageUrl && (
+            {project.status === "ongoing" ? (
+              <motion.div
+                variants={itemVariants}
+                className="w-full"
+              >
+                <div
+                  className="flex w-full items-center justify-center overflow-hidden rounded-xl shadow-lg"
+                  style={{ height: "auto", aspectRatio: "16/9" }}
+                >
+                  <DotLottieReact
+                    key={isInView ? "visible" : "hidden"}
+                    src="https://lottie.host/2b34faf1-d24a-424d-85db-a6db76505fa2/Gr8ZfPczOZ.lottie"
+                    autoplay={true}
+                    loop={true}
+                  />
+                </div>
+              </motion.div>
+            ) : project.imageUrl ? (
               <motion.div
                 variants={itemVariants}
                 className="w-full"
@@ -133,6 +152,18 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                     className="h-full w-full rounded-xl"
                     aspectRatio="aspect-video"
                   />
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                variants={itemVariants}
+                className="w-full"
+              >
+                <div
+                  className="mb-10 flex w-full items-center justify-center overflow-hidden rounded-xl shadow-lg"
+                  style={{ height: "auto", aspectRatio: "16/9" }}
+                >
+                  <p className="text-center text-gray-600 dark:text-gray-300">No image available</p>
                 </div>
               </motion.div>
             )}
@@ -160,15 +191,9 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
 
             <motion.div
               variants={itemVariants}
-              className="mb-5 flex flex-wrap gap-3"
+              className="mb-5"
             >
-              {project.technologies.map((tech, techIndex) => (
-                <InteractiveBadge
-                  key={techIndex}
-                  text={tech}
-                  index={techIndex}
-                />
-              ))}
+              <ScrollingBadges technologies={project.technologies} />
             </motion.div>
 
             {project.link && (

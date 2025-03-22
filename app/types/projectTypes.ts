@@ -4,7 +4,7 @@ export interface ProjectTypes {
   description: string;
   technologies: string[];
   link?: string;
-  imageUrl?: string;
-  videoUrl?: string;
+  imageUrl?: string | null;
+  videoUrl?: string | null;
   status?: "ongoing" | "recent" | "legacy";
 }

@@ -12,18 +12,33 @@ import type { ProjectTypes } from "./types/projectTypes";
 const projects: ProjectTypes[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Decentralised Freelance Platform",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe"],
+      "A decentralised freelance marketplace platform that enables clients to post jobs, freelancers to bid, and both parties to securely execute contracts and payments via blockchain technology. Utilising Next.js, Supabase, and MoonPay, the platform supports cryptocurrency transactions in Ethereum and smart contracts. Clients can post jobs and release payments in Ethereum upon job completion, while freelancers can submit bids, complete tasks, and receive payments.",
+    technologies: [
+      "Next.js",
+      "Supabase",
+      "Tailwind CSS",
+      "TypeScript",
+      "Vercel",
+      "Cloudflare",
+      "Shadcn UI",
+      "Motion",
+      "React Query",
+      "GraphQL",
+      "MoonPay",
+      "Solidity",
+      "Web3.js",
+      "Ethers.js",
+    ],
     link: "#",
-    imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
+    imageUrl: null,
+    videoUrl: null,
     status: "ongoing",
   },
   {
     id: 2,
-    title: "Weather Dashboard",
+    title: "Decentralised Fundraising Platform",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     technologies: ["JavaScript", "React", "OpenWeatherMap API", "Chart.js"],
@@ -34,7 +49,7 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 3,
-    title: "Task Management System",
+    title: "Decentralised Fundraising Platform",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     technologies: ["Vue.js", "Vuex", "Node.js", "PostgreSQL", "Socket.io"],
@@ -45,7 +60,7 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 4,
-    title: "AI-Powered Chatbot",
+    title: "Decentralised Fundraising Platform",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     technologies: ["Python", "TensorFlow", "Flask", "WebSocket", "React"],
@@ -56,7 +71,7 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 5,
-    title: "Blockchain Voting System",
+    title: "Decentralised Fundraising Platform",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     technologies: ["Solidity", "Ethereum", "Web3.js", "React", "Node.js"],

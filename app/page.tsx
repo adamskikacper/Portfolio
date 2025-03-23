@@ -88,7 +88,7 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 6,
-    title: "Dubai Guide",
+    title: "The United Arab Emirates",
     description:
       "A decentralised fundraising platform built on the Ethereum blockchain where users can authenticate via MetaMask, create campaigns, and donate in Ethereum on the Sepolia testnet. Smart contracts written in Solidity manage campaign creation, donations, and fund transfers. All transactions are verifiable on Etherscan for complete transparency.",
     technologies: ["Solidity", "Ethereum", "Web3.js", "React", "Node.js"],

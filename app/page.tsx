@@ -47,7 +47,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://elegant-praline-d51b21.netlify.app/",
     githubLink: "https://github.com/adamskikacper/ETHelp-Decentralised-Fundraising-Platform",
     imageUrl: "/assets/images/blockchain-fundraising.jpg",
-    videoUrl: "/assets/videos/blockchain-fundraising.mp4",
+    videoUrl: "/assets/videos/blockchain-fundraisingv3.mp4",
     status: "recent",
   },
   {
@@ -59,7 +59,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/portfolio/website-luxury-holidays/index.html",
     githubLink: "https://adamskikacper.github.io/portfolio/website-luxury-holidays/index.html",
     imageUrl: "/assets/images/luxury-holidays.jpg",
-    videoUrl: "/assets/videos/luxury-holidays.mp4",
+    videoUrl: "/assets/videos/luxury-holidaysv2.mp4",
     status: "legacy",
   },
   {
@@ -71,7 +71,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/college/",
     githubLink: "https://adamskikacper.github.io/college/",
     imageUrl: "/assets/images/city-of-manchester.jpg",
-    videoUrl: "/assets/videos/city-of-manchester.mp4",
+    videoUrl: "/assets/videos/city-of-manchesterv2.mp4",
     status: "legacy",
   },
   {
@@ -95,7 +95,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/saudiarabia/",
     githubLink: "https://adamskikacper.github.io/saudiarabia/",
     imageUrl: "/assets/images/dubai-guide.jpg",
-    videoUrl: "/assets/videos/dubai-guide.mp4",
+    videoUrl: "/assets/videos/dubai-guidev2.mp4",
     status: "legacy",
   },
   {
@@ -107,7 +107,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/berkhamsted-exhibitions/",
     githubLink: "https://adamskikacper.github.io/berkhamsted-exhibitions/",
     imageUrl: "/assets/images/upstairs-gallery.jpg",
-    videoUrl: "/assets/videos/upstairs-gallery.mp4",
+    videoUrl: "/assets/videos/upstairs-galleryv2.mp4",
     status: "legacy",
   },
   {
@@ -119,7 +119,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/electroconstructor/",
     githubLink: "https://adamskikacper.github.io/electroconstructor/",
     imageUrl: "/assets/images/electro-constructor.jpg",
-    videoUrl: "/assets/videos/electro-constructor.mp4",
+    videoUrl: "/assets/videos/electro-constructorv2.mp4",
     status: "legacy",
   },
 ];

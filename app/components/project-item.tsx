@@ -147,6 +147,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                     width={1920}
                     height={1080}
                     buttonText="View Project"
+                    onButtonClick={() => window.open(project.projectLink, "_blank")}
                     buttonIcon={Eye}
                     type="video"
                     className="h-full w-full rounded-xl"

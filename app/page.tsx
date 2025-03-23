@@ -83,7 +83,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://adamskikacper.github.io/childcare/",
     githubLink: "https://adamskikacper.github.io/childcare/",
     imageUrl: "/assets/images/charity-organisation.jpg",
-    videoUrl: "/assets/videos/charity-organisation.mp4",
+    videoUrl: "/assets/videos/charity-organisationv2.mp4",
     status: "legacy",
   },
   {

@@ -90,7 +90,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
       >
         <motion.div
           variants={itemVariants}
-          className="relative overflow-hidden rounded-3xl border border-gray-800/30 bg-background-secondary-dark/80 p-4 backdrop-blur-sm lg:p-8 dark:border-gray-700/30"
+          className="border-gray-700/ relative overflow-hidden rounded-3xl border bg-background-secondary-light p-4 backdrop-blur-sm lg:p-8 dark:border-gray-700/30 dark:bg-background-secondary-dark/80"
         >
           <AnimatePresence>
             {isHovered && (
@@ -120,7 +120,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                 className="w-full"
               >
                 <div
-                  className="flex w-full items-center justify-center overflow-hidden rounded-xl shadow-lg"
+                  className="flex w-full items-center justify-center overflow-hidden rounded-xl"
                   style={{ height: "auto", aspectRatio: "16/9" }}
                 >
                   <DotLottieReact

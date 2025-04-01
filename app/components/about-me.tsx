@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { DownloadIcon, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -51,8 +51,6 @@ const AboutMe = () => {
                 alt="Header Image"
                 width={1000}
                 height={1000}
-                buttonText="Download CV"
-                buttonIcon={DownloadIcon}
                 className="h-full w-full"
                 aspectRatio="aspect-square"
               />

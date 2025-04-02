@@ -77,18 +77,18 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              My interest in web development started back in high school when I first studied
-              Computer Science. Since then, I&apos;ve been focused on creating websites and
-              exploring new possibilities within the field.
+              I&apos;m a frontend developer from Poland based in the UK with a passion for web
+              development that began in high school. What started as a curiosity quickly turned into
+              a full-blown passion, and I&apos;ve been building, learning and staying curious ever
+              since.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              I graduated from Northumbria University with a 1st class honours degree and have
-              continued working professionally in the field, both during and after my studies. With
-              nearly 3 years of professional experience, I&apos;ve worked primarily with Angular but
-              am now diving deeper into React & Next.js.
+              After graduating from Northumbria University with a 1st class honours degree,
+              I&apos;ve spent nearly 3 years working professionally in the field. While my roots are
+              in Angular, I&apos;m now diving deeper into React and Next.js.
             </motion.p>
             <motion.p
               variants={itemVariants}

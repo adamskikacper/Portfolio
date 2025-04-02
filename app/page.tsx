@@ -1,14 +1,15 @@
 "use client";
 
-import Header from "./components/header";
-import Navbar from "./components/navbar";
-
+import { useEffect, useState } from "react";
 import AboutMe from "./components/about-me";
 import ContactForm from "./components/contact-form";
 import ExperienceContainer from "./components/experience-container";
-
+import Header from "./components/header";
+import LoadingState from "./components/LoadingState";
+import Navbar from "./components/navbar";
 import Projects from "./components/project";
 import type { ProjectTypes } from "./types/projectTypes";
+
 const projects: ProjectTypes[] = [
   {
     id: 1,
@@ -147,7 +148,7 @@ const projects: ProjectTypes[] = [
     id: 7,
     title: "Upstairs Gallery",
     description:
-      "A website for a gallery in Berkhamsted, created as part of a college competition for an actual client. I used HTML, CSS, and JavaScript to build a simple website to showcase the gallery’s work. Competing against other students, I won first place for delivering a functional solution. This project provided hands-on experience in front-end development and working with clients.",
+      "A website for a gallery in Berkhamsted, created as part of a college competition for an actual client. I used HTML, CSS, and JavaScript to build a simple website to showcase the gallery's work. Competing against other students, I won first place for delivering a functional solution. This project provided hands-on experience in front-end development and working with clients.",
     technologies: [
       "HTML",
       "CSS",
@@ -180,44 +181,57 @@ const projects: ProjectTypes[] = [
 ];
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="relative overflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
-      <Navbar />
+    <LoadingState isLoading={isLoading}>
+      <div className="relative overflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
+        <Navbar />
 
-      <div
-        id="home"
-        className="relative lg:dark:bg-background-primary-dark"
-      >
-        <Header />
-      </div>
+        <div
+          id="home"
+          className="relative lg:dark:bg-background-primary-dark"
+        >
+          <Header />
+        </div>
 
-      <div
-        id="about"
-        className="container pb-10 pt-20 lg:pb-20 lg:pt-40"
-      >
-        <AboutMe />
-      </div>
+        <div
+          id="about"
+          className="container pb-10 pt-20 lg:pb-20 lg:pt-40"
+        >
+          <AboutMe />
+        </div>
 
-      <div
-        id="experience"
-        className="container py-10 lg:py-20"
-      >
-        <ExperienceContainer />
-      </div>
+        <div
+          id="experience"
+          className="container py-10 lg:py-20"
+        >
+          <ExperienceContainer />
+        </div>
 
-      <div
-        id="projects"
-        className="container relative py-10"
-      >
-        <Projects projects={projects} />
-      </div>
+        <div
+          id="projects"
+          className="container relative py-10"
+        >
+          <Projects projects={projects} />
+        </div>
 
-      <div
-        id="contact"
-        className="container relative py-10 lg:py-20"
-      >
-        <ContactForm />
+        <div
+          id="contact"
+          className="container relative py-10 lg:py-20"
+        >
+          <ContactForm />
+        </div>
       </div>
-    </div>
+    </LoadingState>
   );
 }

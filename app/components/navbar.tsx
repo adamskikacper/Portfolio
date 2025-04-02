@@ -161,9 +161,16 @@ export default function Navbar() {
                   href="#home"
                   className="flex items-center"
                 >
-                  <p className="text-sm font-bold text-text-primary-light dark:text-text-primary-dark">
-                    Kacper Adamski
-                  </p>
+                  <div className="flex items-center gap-3 rounded-lg border border-border-light/50 bg-background-secondary-light/30 px-3 py-1.5 shadow-sm backdrop-blur-sm transition-all duration-300 dark:border-border-dark/30 dark:bg-background-secondary-dark/20">
+                    <img
+                      src="/favicon.ico"
+                      alt="logo"
+                      className="h-8 w-8"
+                    />
+                    <span className="text-base font-semibold tracking-tight text-text-primary-light dark:text-text-primary-dark">
+                      Kacper Adamski
+                    </span>
+                  </div>
                 </a>
               </div>
 

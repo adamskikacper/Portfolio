@@ -69,7 +69,7 @@ const AboutMe = () => {
             {" "}
             <motion.h2
               variants={itemVariants}
-              className="text-shine mb-5 text-5xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300"
+              className="text-shine mb-5 text-4xl font-extrabold uppercase text-gray-600 sm:text-5xl md:text-5xl xl:text-7xl dark:text-gray-300"
             >
               About me
             </motion.h2>

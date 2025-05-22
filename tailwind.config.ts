@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss";
 import daisyui from "daisyui";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: "selector",
@@ -99,7 +99,7 @@ const config: Config = {
       container: {
         center: true,
         padding: {
-          DEFAULT: "2rem",
+          DEFAULT: "1rem",
           sm: "2rem",
           lg: "4rem",
           xl: "5rem",

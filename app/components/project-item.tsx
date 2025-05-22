@@ -171,7 +171,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
 
             <motion.div
               variants={itemVariants}
-              className="absolute right-4 top-4 max-w-fit"
+              className="absolute right-4 top-4"
             >
               {project.status && <StatusBadge status={project.status as StatusType} />}
             </motion.div>

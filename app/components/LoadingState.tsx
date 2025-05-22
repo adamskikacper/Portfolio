@@ -29,3 +29,4 @@ const LoadingState = ({ isLoading, children }: LoadingStateProps) => {
 };
 
 export default LoadingState;
+

@@ -61,8 +61,9 @@ const ExperienceComponent = ({ experiences }: ExperienceProps) => {
               </div>
 
               <div className="mb-4">
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                  {experience.position} {" @ "}
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                  {experience.position}
+                  <br></br> {" @ "}
                   {experience.link ? (
                     <Link
                       href={experience.link}

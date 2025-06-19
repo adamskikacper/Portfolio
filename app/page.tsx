@@ -79,7 +79,7 @@ const projects: ProjectTypes[] = [
     id: 3,
     title: "Luxury Holidays",
     description:
-      "This project was part of my university assignment, where I developed a CRUD website using PHP and MySQL with phpMyAdmin to store user data and holiday information. It features an admin page that allows users to add, edit, remove, and update holidays. This project helped me strengthen my skills in back-end development and database management.",
+      "A university assignment, where I developed a CRUD website using PHP and MySQL with phpMyAdmin to store user data and holiday information. It features an admin page that allows users to add, edit, remove, and update holidays. This project helped me strengthen my skills in back-end development and database management.",
     technologies: [
       "PHP",
       "MySQL",
@@ -102,7 +102,7 @@ const projects: ProjectTypes[] = [
     id: 4,
     title: "City of Manchester",
     description:
-      "A high school assignment for the web development module, focused on the city of Manchester. It was built using pure HTML, CSS, and JavaScript, without any frameworks. The project is simple and served as a foundational exercise in front-end development.",
+      "A high school assignment, focused on the city of Manchester. It was built using pure HTML, CSS, and JavaScript. The project is simple and served as a foundational exercise in front-end development.",
     technologies: [
       "HTML",
       "CSS",
@@ -170,7 +170,7 @@ const projects: ProjectTypes[] = [
     id: 8,
     title: "Electro Constructor",
     description:
-      "Created during high school, this was my very first attempt at web development. I used HTML to structure the content and CSS to style the page, providing a solid foundation for my skills in web design.",
+      "Created during high school as my very first attempt at web development. The technologies used were HTML to structure the content and CSS to style the page, providing a solid foundation for layout development.",
     technologies: ["HTML", "CSS", "HTML", "CSS", "HTML", "CSS"],
     projectLink: "https://adamskikacper.github.io/electroconstructor/",
     githubLink: "https://adamskikacper.github.io/electroconstructor/",

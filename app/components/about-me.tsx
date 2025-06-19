@@ -45,7 +45,7 @@ const AboutMe = () => {
               style={{ height: "auto", aspectRatio: "1/1" }}
             >
               <HoverImage
-                imgSrc="/assets/images/avatar.jpg"
+                imgSrc="/assets/images/avatar.jpeg"
                 videoSrc=""
                 type="image"
                 alt="Header Image"

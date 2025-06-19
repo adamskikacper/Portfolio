@@ -77,34 +77,34 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              I&apos;m a frontend developer from Poland based in the UK with a passion for web
-              development that began in high school. What started as a curiosity quickly turned into
-              a full-blown passion, and I&apos;ve been building, learning and staying curious ever
-              since.
+              2016 was the year my journey as a frontend developer began. What started as simple
+              curiosity quickly turned into a full-blown passion, leading me to pursue a Computer
+              Science degree at Northumbria University, specialising in Web Development.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              After graduating from Northumbria University with a 1st class honours degree,
-              I&apos;ve spent nearly 3 years working professionally in the field. While my roots are
-              in Angular, I&apos;m now diving deeper into React and Next.js.
+              After graduating from the university with a First Class Honours degree, I spent three
+              years working professionally in the field. While my day-to-day work still heavily
+              involves Angular, I'm also diving deeper into React and Next.js, keen to explore new
+              challenges and expand my skillset.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              When I&apos;m not coding, I&apos;m often exploring the world of crypto and Web3 —
-              something I&apos;ve been fascinated by for years. I also enjoy 3D modeling and
-              printing, or catching up on YouTube videos and documentaries.
+              When I'm not coding, I'm often exploring the world of crypto and Web3 — something I've
+              been fascinated by for years. I also enjoy 3D modeling and printing, keeping up with
+              the latest AI tools, or catching up on YouTube videos and documentaries.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              After all, building something great together is what really excites me. And if you
-              want your website built with a little extra &quot;polish&quot; — just like a perfectly
-              crafted pierogi 🥟 — you&apos;ve come to the right place!
+              After all, building something great together is what truly excites me. And if you want
+              your website built with a little extra "polish" — just like a perfectly made pierogi
+              🥟 — you've come to the right place!
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button

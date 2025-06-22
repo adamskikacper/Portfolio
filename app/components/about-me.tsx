@@ -77,9 +77,9 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              2016 was the year my journey as a frontend developer began. What started as simple
-              curiosity quickly turned into a full-blown passion, leading me to pursue a Computer
-              Science degree at Northumbria University, specialising in Web Development.
+              My journey as a frontend developer began in 2016. What started as simple curiosity
+              quickly grew into a passion, eventually leading me to study Computer Science at
+              Northumbria University, where I specialised in Web Development.
             </motion.p>
             <motion.p
               variants={itemVariants}

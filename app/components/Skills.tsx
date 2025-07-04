@@ -1,5 +1,6 @@
 "use client";
 
+import { FRONTEND_TECHNOLOGIES, TECH_DISPLAY_NAMES } from "@/constants/skills";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import StackIcon from "tech-stack-icons";
@@ -16,37 +17,8 @@ const Skills = () => {
     amount: 0.3,
   });
 
-  const techDisplayNames: { [key: string]: string } = {
-    reactjs: "React",
-    nextjs2: "Next.js",
-    typescript: "TypeScript",
-    js: "JavaScript",
-    html5: "HTML5",
-    css3: "CSS3",
-    tailwindcss: "Tailwind CSS",
-    sass: "Sass",
-    angular17: "Angular",
-    gsap: "GSAP",
-    figma: "Figma",
-    git: "Git",
-    storybook: "Storybook",
-  };
-
-  const frontendTechnologies = [
-    "reactjs",
-    "nextjs2",
-    "typescript",
-    "js",
-    "html5",
-    "css3",
-    "tailwindcss",
-    "sass",
-    "angular17",
-    "gsap",
-    "figma",
-    "git",
-    "storybook",
-  ];
+  const techDisplayNames = TECH_DISPLAY_NAMES;
+  const frontendTechnologies = FRONTEND_TECHNOLOGIES;
 
   const extendedTechnologies = [
     ...frontendTechnologies,

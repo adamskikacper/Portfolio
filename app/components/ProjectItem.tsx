@@ -8,9 +8,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ProjectTypes } from "../types/projectTypes";
-import HoverImage from "./hover-image";
-import ScrollingBadges from "./scrolling-badges";
-import { StatusBadge, StatusType } from "./status-badge";
+import HoverImage from "./HoverImage";
+import ScrollingBadges from "./ScrollingBadges";
+import { StatusBadge, StatusType } from "./StatusBadge";
 
 interface ProjectItemProps {
   project: ProjectTypes;

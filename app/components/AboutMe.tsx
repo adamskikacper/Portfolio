@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 
-import HoverImage from "./hover-image";
+import HoverImage from "./HoverImage";
 
 const AboutMe = () => {
   const { containerVariants, itemVariants } = useStaggerAnimation();

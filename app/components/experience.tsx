@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ExperienceTypes } from "../types/experienceTypes";
-import InteractiveBadge from "./interactive-badge";
+import InteractiveBadge from "./InteractiveBadge";
 
 interface ExperienceProps {
   experiences: ExperienceTypes;

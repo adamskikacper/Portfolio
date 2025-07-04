@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ProjectTypes } from "../types/projectTypes";
-import { ProjectItem } from "./project-item";
+import { ProjectItem } from "./ProjectItem";
 
 interface ProjectProps {
   projects: ProjectTypes[];

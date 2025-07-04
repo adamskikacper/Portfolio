@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import InteractiveBadge from "./interactive-badge";
+import InteractiveBadge from "./InteractiveBadge";
 
 interface ScrollingBadgesProps {
   technologies: string[];

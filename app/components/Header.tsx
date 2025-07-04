@@ -5,6 +5,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Github, MailIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import StackIcon from "tech-stack-icons";
+import { TECH_STACK_IMAGES } from "@/constants/techStack";
 import AnimatedDots from "./AnimatedDots";
 export default function Header() {
   const { scrollY } = useScroll();
@@ -15,66 +16,7 @@ export default function Header() {
     amount: 0.3,
   });
 
-  const images = [
-    "angular17",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "nextjs2",
-    "js",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "nextjs2",
-    "angular17",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "js",
-    "angular17",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "typescript",
-    "reactjs",
-    "angular17",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-    "reactjs",
-    "js",
-    "nextjs2",
-    "tailwindcss",
-    "typescript",
-  ];
+  const images = TECH_STACK_IMAGES;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

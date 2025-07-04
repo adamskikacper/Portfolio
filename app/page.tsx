@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AboutMe from "./components/about-me";
-import ContactForm from "./components/contact-form";
-import ExperienceContainer from "./components/experience-container";
-import Header from "./components/header";
+import AboutMe from "./components/AboutMe";
+import ContactForm from "./components/ContactForm";
+import ExperienceContainer from "./components/ExperienceContainer";
+import Header from "./components/Header";
 import LoadingState from "./components/LoadingState";
-import Navbar from "./components/navbar";
-import Projects from "./components/project";
+import Navbar from "./components/Navbar";
+import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import type { ProjectTypes } from "./types/projectTypes";
 

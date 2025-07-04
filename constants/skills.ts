@@ -1,0 +1,31 @@
+export const TECH_DISPLAY_NAMES: { [key: string]: string } = {
+  reactjs: "React",
+  nextjs2: "Next.js",
+  typescript: "TypeScript",
+  js: "JavaScript",
+  html5: "HTML5",
+  css3: "CSS3",
+  tailwindcss: "Tailwind CSS",
+  sass: "Sass",
+  angular17: "Angular",
+  gsap: "GSAP",
+  figma: "Figma",
+  git: "Git",
+  storybook: "Storybook",
+};
+
+export const FRONTEND_TECHNOLOGIES: string[] = [
+  "reactjs",
+  "nextjs2",
+  "typescript",
+  "js",
+  "html5",
+  "css3",
+  "tailwindcss",
+  "sass",
+  "angular17",
+  "gsap",
+  "figma",
+  "git",
+  "storybook",
+];

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ExperienceTypes } from "../types/experienceTypes";
-import Experience from "./experience";
+import Experience from "./Experience";
 
 const experienceData: ExperienceTypes = [
   {

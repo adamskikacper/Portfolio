@@ -3,16 +3,8 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import ThemeToggle from "./theme-toggle";
-
-const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import ThemeToggle from "./ThemeToggle";
+import { NAV_ITEMS } from "@/constants/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +25,7 @@ export default function Navbar() {
     }
 
     if (!isProgrammaticScroll) {
-      const sections = navItems.map((item) => item.href.substring(1));
+      const sections = NAV_ITEMS.map((item) => item.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -170,7 +162,7 @@ export default function Navbar() {
 
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-4">
-                  {navItems.map((item) => (
+                  {NAV_ITEMS.map((item) => (
                     <motion.a
                       key={item.name}
                       href={item.href}
@@ -248,7 +240,7 @@ export default function Navbar() {
             </motion.button>
 
             <div className="flex h-full w-full flex-col items-center justify-center space-y-10 px-4">
-              {navItems.map((item) => (
+              {NAV_ITEMS.map((item) => (
                 <motion.div
                   key={item.name}
                   variants={itemVariants}

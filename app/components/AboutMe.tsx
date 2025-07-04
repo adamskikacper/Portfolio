@@ -89,7 +89,7 @@ const AboutMe = () => {
             >
               While my day-to-day work still heavily involves Angular, I'm also diving deeper into
               React, keen to explore new challenges and expand my skillset. I'm a self-motivated
-              professional, comfortable with remote work, known for my strong attention to detail
+              individual, known for my strong attention to detail
               and proven record of taking full ownership and driving projects to completion
               independently.
             </motion.p>

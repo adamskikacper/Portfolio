@@ -77,18 +77,21 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              My journey as a frontend developer began in 2016. What started as simple curiosity
-              quickly grew into a passion, eventually leading me to study Computer Science at
-              Northumbria University, where I specialised in Web Development.
+              I'm a Front-End Developer with three years of hands-on experience, primarily working
+              in Angular. I hold a First Class Honours degree in Computer Science with a
+              specialisation in Web Development, and my strengths lie in translating designs into
+              pixel-perfect, responsive user interfaces and delivering clean, visually consistent
+              layouts.
             </motion.p>
             <motion.p
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              After graduating from the university with a First Class Honours degree, I spent three
-              years working professionally in the field. While my day-to-day work still heavily
-              involves Angular, I'm also diving deeper into React and Next.js, keen to explore new
-              challenges and expand my skillset.
+              While my day-to-day work still heavily involves Angular, I'm also diving deeper into
+              React, keen to explore new challenges and expand my skillset. I'm a self-motivated
+              professional, comfortable with remote work, known for my strong attention to detail
+              and proven record of taking full ownership and driving projects to completion
+              independently.
             </motion.p>
             <motion.p
               variants={itemVariants}
@@ -102,9 +105,9 @@ const AboutMe = () => {
               variants={itemVariants}
               className="sm:text-md mb-5 leading-relaxed text-gray-600 dark:text-gray-300"
             >
-              After all, building something great together is what truly excites me. And if you want
-              your website built with a little extra "polish" — just like a perfectly made pierogi
-              🥟 — you've come to the right place!
+              Building something great together is what truly excites me. And if you want your
+              website built with a little extra "polish" — just like a perfectly made pierogi 🥟 —
+              you've come to the right place!
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button

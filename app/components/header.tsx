@@ -1,14 +1,20 @@
 "use client";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Github, MailIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
 export default function Header() {
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(headerRef, {
+    once: false,
+    amount: 0.3,
+  });
+
   const images = [
     "angular17",
     "typescript",
@@ -81,7 +87,7 @@ export default function Header() {
   const scale = useTransform(scrollY, [500, 0], [1, 0.85]);
   const borderRadius = useTransform(scrollY, [500, 0], [0, 28]);
   const { containerVariants, itemVariants } = useStaggerAnimation();
-  const imageY = useTransform(scrollY, [0, 2000], [0, -1200]);
+  const imageY = useTransform(scrollY, [0, 2000], isInView ? [0, -1200] : [0, 0]);
 
   const handleGithubClick = () => {
     window.open("https://github.com/adamskikacper", "_blank", "noopener,noreferrer");
@@ -96,6 +102,7 @@ export default function Header() {
 
   return (
     <motion.header
+      ref={headerRef}
       style={{
         y: windowWidth >= 1024 ? headerY : 0,
         scale: windowWidth >= 1024 ? scale : 1,

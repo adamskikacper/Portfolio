@@ -59,4 +59,17 @@
     /* Add subtle shadow for depth */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
+
+  .animate-scroll {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
 }

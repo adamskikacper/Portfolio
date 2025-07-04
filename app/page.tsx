@@ -8,6 +8,7 @@ import Header from "./components/header";
 import LoadingState from "./components/LoadingState";
 import Navbar from "./components/navbar";
 import Projects from "./components/project";
+import Skills from "./components/Skills";
 import type { ProjectTypes } from "./types/projectTypes";
 
 const projects: ProjectTypes[] = [
@@ -184,7 +185,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate initial loading
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -209,6 +209,13 @@ export default function Home() {
           className="container pb-10 pt-20 lg:pb-20 lg:pt-40"
         >
           <AboutMe />
+        </div>
+
+        <div
+          id="skills"
+          className="container"
+        >
+          <Skills />
         </div>
 
         <div

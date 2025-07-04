@@ -8,6 +8,7 @@ import ThemeToggle from "./theme-toggle";
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -31,9 +32,7 @@ export default function Navbar() {
       setHidden(false);
     }
 
-    // Only update active section if not during programmatic scroll
     if (!isProgrammaticScroll) {
-      // Update active section based on scroll position
       const sections = navItems.map((item) => item.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -51,7 +50,6 @@ export default function Navbar() {
   useEffect(() => {
     setHidden(false);
 
-    // Prevent body scroll when mobile menu is open
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -82,24 +80,20 @@ export default function Navbar() {
     const sectionId = href.substring(1);
     const target = document.getElementById(sectionId);
 
-    // Set active section immediately when clicked
     setActiveSection(sectionId);
 
     if (target) {
-      // Disable scroll detection during programmatic scroll
       setIsProgrammaticScroll(true);
 
       target.scrollIntoView({ behavior: "smooth" });
 
-      // Re-enable scroll detection after animation completes
       setTimeout(() => {
         setIsProgrammaticScroll(false);
-      }, 1000); // Adjust timing based on your scroll animation duration
+      }, 1000);
     }
     setIsOpen(false);
   };
 
-  // Mobile menu animation variants
   const menuVariants = {
     closed: {
       opacity: 0,

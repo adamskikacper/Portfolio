@@ -45,7 +45,7 @@ const Projects = ({ projects }: ProjectProps) => {
       >
         <motion.p
           variants={itemVariants}
-          className="max-w-4xl leading-relaxed text-gray-600 dark:text-gray-300"
+          className="max-w-5xl leading-relaxed text-gray-600 dark:text-gray-300"
         >
           To fully illustrate my journey and continuous development as a developer, I've
           deliberately chosen not to remove any of my projects as they offer a transparent look at
@@ -56,7 +56,7 @@ const Projects = ({ projects }: ProjectProps) => {
       </motion.div>
 
       {/* Mobile Layout - Single Column */}
-      <div className="block lg:hidden space-y-8">
+      <div className="block space-y-8 lg:hidden">
         {projects.map((project, index) => (
           <ProjectItem
             key={project.id}
@@ -70,17 +70,20 @@ const Projects = ({ projects }: ProjectProps) => {
       </div>
 
       {/* Desktop Layout - 3 Column Grid */}
-      <div className="hidden lg:grid lg:gap-8 xl:gap-12 relative" style={{ gridTemplateColumns: '1fr 50px 1fr', height: `${projects.length * 100}vh` }}>
+      <div
+        className="relative hidden lg:grid lg:gap-8 xl:gap-12"
+        style={{ gridTemplateColumns: "1fr 50px 1fr", height: `${projects.length * 100}vh` }}
+      >
         {/* Left Column - Even indexed projects */}
         <div className="relative">
-          {projects.map((project, index) => 
+          {projects.map((project, index) =>
             index % 2 === 0 ? (
-              <div 
+              <div
                 key={project.id}
                 className="absolute w-full"
-                style={{ 
+                style={{
                   top: `${index * 100 + 50}vh`,
-                  transform: "translateY(-50%)"
+                  transform: "translateY(-50%)",
                 }}
               >
                 <ProjectItem
@@ -106,14 +109,14 @@ const Projects = ({ projects }: ProjectProps) => {
 
         {/* Right Column - Odd indexed projects */}
         <div className="relative">
-          {projects.map((project, index) => 
+          {projects.map((project, index) =>
             index % 2 === 1 ? (
-              <div 
+              <div
                 key={project.id}
                 className="absolute w-full"
-                style={{ 
+                style={{
                   top: `${index * 100 + 50}vh`,
-                  transform: "translateY(-50%)"
+                  transform: "translateY(-50%)",
                 }}
               >
                 <ProjectItem

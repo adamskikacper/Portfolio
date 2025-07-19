@@ -1,18 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import useStaggerAnimation from "../hooks/useStaggerAnimation";
 import { ProjectTypes } from "../types/projectTypes";
 import { ProjectItem } from "./ProjectItem";
+import ScrollTimeline from "./ScrollTimeline";
 
 interface ProjectProps {
   projects: ProjectTypes[];
 }
 
 const Projects = ({ projects }: ProjectProps) => {
-  const { itemVariants, containerVariants } = useStaggerAnimation();
+  const { itemVariants } = useStaggerAnimation();
+  const [triggeredProjects, setTriggeredProjects] = useState<number[]>([]);
+
+  const handleProjectTrigger = (index: number) => {
+    setTriggeredProjects((prev) => {
+      if (!prev.includes(index)) {
+        return [...prev, index];
+      }
+      return prev;
+    });
+  };
+
   return (
-    <section>
+    <section id="projects">
       <motion.h2
         variants={itemVariants}
         initial="hidden"
@@ -42,19 +55,29 @@ const Projects = ({ projects }: ProjectProps) => {
         </motion.p>
       </motion.div>
 
-      <div
-        className="relative"
-      >
-        <ul className="timeline timeline-vertical timeline-snap-icon z-10 mb-10 flex flex-col gap-5 max-lg:timeline-compact lg:gap-0">
+      <div className="relative">
+        {/* Timeline (background) */}
+        <div className="absolute left-1/2 top-0 z-0 hidden h-full -translate-x-1/2 lg:block">
+          <ScrollTimeline
+            projectCount={projects.length}
+            sectionId="projects"
+            onProjectTrigger={handleProjectTrigger}
+          />
+        </div>
+
+        {/* Projects Container */}
+        <div className="relative z-10 space-y-8 lg:space-y-16">
           {projects.map((project, index) => (
             <ProjectItem
               key={project.id}
               project={project}
               index={index}
               totalProjects={projects.length}
+              gridColumn={index % 2 === 0 ? "left" : "right"}
+              isTriggered={triggeredProjects.includes(index)}
             />
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

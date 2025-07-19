@@ -7,7 +7,6 @@
     position: relative;
     color: theme("colors.gray.700");
     font-weight: 900;
-    /* Metallic gradient using Tailwind gray colors */
     background-color: theme("colors.gray.600");
     background-image: linear-gradient(
       90deg,
@@ -24,18 +23,15 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Improve text rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: geometricPrecision;
-    /* Add subtle shadow for depth */
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   }
 
   .dark .text-shine {
     color: theme("colors.gray.100");
     font-weight: 900;
-    /* Metallic gradient for dark mode using Tailwind gray colors */
     background-color: theme("colors.gray.400");
     background-image: linear-gradient(
       90deg,
@@ -71,5 +67,35 @@
     100% {
       transform: translateX(-33.33%);
     }
+  }
+
+  .timeline-gradient {
+    background: linear-gradient(
+      0deg,
+      theme("colors.gray.800") 0%,
+      theme("colors.gray.700") 15%,
+      theme("colors.gray.600") 30%,
+      theme("colors.gray.500") 40%,
+      theme("colors.gray.400") 50%,
+      theme("colors.gray.500") 60%,
+      theme("colors.gray.600") 70%,
+      theme("colors.gray.700") 85%,
+      theme("colors.gray.800") 100%
+    );
+  }
+
+  .dark .timeline-gradient {
+    background: linear-gradient(
+      0deg,
+      theme("colors.gray.500") 0%,
+      theme("colors.gray.400") 15%,
+      theme("colors.gray.300") 30%,
+      theme("colors.gray.200") 40%,
+      theme("colors.gray.100") 50%,
+      theme("colors.gray.200") 60%,
+      theme("colors.gray.300") 70%,
+      theme("colors.gray.400") 85%,
+      theme("colors.gray.500") 100%
+    );
   }
 }

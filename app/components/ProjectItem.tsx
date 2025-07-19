@@ -15,15 +15,16 @@ interface ProjectItemProps {
   project: ProjectTypes;
   index: number;
   totalProjects: number;
+  gridColumn?: "left" | "right" | "mobile";
+  isTriggered?: boolean;
 }
 
-export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps) => {
+export const ProjectItem = ({
+  project,
+  gridColumn = "mobile",
+  isTriggered = false,
+}: ProjectItemProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.3,
-    margin: "100px 0px 0px 0px",
-  });
   const { containerVariants, itemVariants } = useStaggerAnimation();
   const [windowWidth, setWindowWidth] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -36,54 +37,18 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
   }, []);
 
   return (
-    <li
+    <div
       key={project.id}
       ref={ref}
+      className="relative"
     >
-      {index !== 0 && (
-        <motion.hr
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: isInView ? 1 : 0 }}
-          transition={{
-            duration: 1.2,
-            delay: 0.5,
-            ease: "easeOut",
-          }}
-          style={{ transformOrigin: "top" }}
-          className="hidden bg-background-secondary-dark/20 p-1 lg:block dark:bg-background-secondary-light/20"
-        />
-      )}
-      <div className="timeline-middle hidden lg:block">
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="#EAB30E"
-          className="h-8 w-8 xl:h-10 xl:w-10"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{
-            scale: isInView ? 1 : 0,
-            opacity: isInView ? 1 : 0,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 0.5,
-            ease: "backOut",
-          }}
-        >
-          <path
-            fillRule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-            clipRule="evenodd"
-          />
-        </motion.svg>
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className={`!m-0 w-full lg:w-auto ${index % 2 === 0 ? "timeline-start mr-2 lg:pr-5" : "timeline-end ml-2 lg:pl-5"} `}
+        animate={isTriggered ? "visible" : "hidden"}
+        className={`w-full max-w-lg ${
+          gridColumn === "left" ? "lg:mr-auto" : gridColumn === "right" ? "lg:ml-auto" : "mx-auto"
+        }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -208,20 +173,6 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
           </div>
         </motion.div>
       </motion.div>
-
-      {index !== totalProjects - 1 && (
-        <motion.hr
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: isInView ? 1 : 0 }}
-          transition={{
-            duration: 1.2,
-            delay: 0.8,
-            ease: "easeOut",
-          }}
-          style={{ transformOrigin: "top" }}
-          className="hidden bg-background-secondary-dark/20 p-1 lg:block dark:bg-background-secondary-light/20"
-        />
-      )}
-    </li>
+    </div>
   );
 };

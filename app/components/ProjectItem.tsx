@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Eye, Github } from "lucide-react";
 import Image from "next/image";
@@ -114,24 +113,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
           </AnimatePresence>
 
           <div className="relative z-10">
-            {project.status === "ongoing" ? (
-              <motion.div
-                variants={itemVariants}
-                className="w-full"
-              >
-                <div
-                  className="flex w-full items-center justify-center overflow-hidden rounded-xl"
-                  style={{ height: "auto", aspectRatio: "16/9" }}
-                >
-                  <DotLottieReact
-                    key={isInView ? "visible" : "hidden"}
-                    src="https://lottie.host/2b34faf1-d24a-424d-85db-a6db76505fa2/Gr8ZfPczOZ.lottie"
-                    autoplay={true}
-                    loop={true}
-                  />
-                </div>
-              </motion.div>
-            ) : project.imageUrl ? (
+            {project.imageUrl ? (
               <motion.div
                 variants={itemVariants}
                 className="w-full"
@@ -149,7 +131,7 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
                     buttonText="View Project"
                     onButtonClick={() => window.open(project.projectLink, "_blank")}
                     buttonIcon={Eye}
-                    type="video"
+                    type={project.status === "ongoing" ? "image" : "video"}
                     className="h-full w-full rounded-xl"
                     aspectRatio="aspect-video"
                   />
@@ -197,32 +179,32 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
               <ScrollingBadges technologies={project.technologies} />
             </motion.div>
 
-            {project.projectLink && (
-              <motion.div
-                variants={itemVariants}
-                className="mt-6 flex gap-5"
+            <motion.div
+              variants={itemVariants}
+              className="mt-6 flex gap-5"
+            >
+              <Button
+                variant="outline"
+                className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+                size={windowWidth < 640 ? "sm" : "lg"}
+                onClick={() => project.projectLink && window.open(project.projectLink, "_blank")}
+                disabled={!project.projectLink}
               >
-                <Button
-                  variant="outline"
-                  className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                  size={windowWidth < 640 ? "sm" : "lg"}
-                  onClick={() => window.open(project.projectLink, "_blank")}
-                >
-                  <Eye className="mr-2 h-4 w-4" />
-                  View Project
-                </Button>
+                <Eye className="mr-2 h-4 w-4" />
+                View Project
+              </Button>
 
-                <Button
-                  variant="outline"
-                  className="w-full transition-transform hover:scale-105 sm:w-[150px]"
-                  size={windowWidth < 640 ? "sm" : "lg"}
-                  onClick={() => window.open(project.githubLink, "_blank")}
-                >
-                  <Github className="mr-2 h-4 w-4" />
-                  Github
-                </Button>
-              </motion.div>
-            )}
+              <Button
+                variant="outline"
+                className="w-full transition-transform hover:scale-105 sm:w-[150px]"
+                size={windowWidth < 640 ? "sm" : "lg"}
+                onClick={() => project.githubLink && window.open(project.githubLink, "_blank")}
+                disabled={!project.githubLink}
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Github
+              </Button>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>

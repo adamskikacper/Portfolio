@@ -15,10 +15,12 @@ const Projects = ({ projects }: ProjectProps) => {
   const { itemVariants } = useStaggerAnimation();
   const [triggeredProjects, setTriggeredProjects] = useState<number[]>([]);
 
-  const handleProjectTrigger = (index: number) => {
+  const handleProjectTrigger = (index: number, isActive: boolean) => {
     setTriggeredProjects((prev) => {
-      if (!prev.includes(index)) {
+      if (isActive && !prev.includes(index)) {
         return [...prev, index];
+      } else if (!isActive && prev.includes(index)) {
+        return prev.filter(i => i !== index);
       }
       return prev;
     });
@@ -82,8 +84,7 @@ const Projects = ({ projects }: ProjectProps) => {
                 key={project.id}
                 className="absolute w-full"
                 style={{
-                  top: `${index * 100 + 50}vh`,
-                  transform: "translateY(-50%)",
+                  top: `${index * 100 + 10}vh`,
                 }}
               >
                 <ProjectItem
@@ -115,8 +116,7 @@ const Projects = ({ projects }: ProjectProps) => {
                 key={project.id}
                 className="absolute w-full"
                 style={{
-                  top: `${index * 100 + 50}vh`,
-                  transform: "translateY(-50%)",
+                  top: `${index * 100 + 10}vh`,
                 }}
               >
                 <ProjectItem

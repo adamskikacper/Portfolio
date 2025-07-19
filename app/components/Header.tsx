@@ -1,11 +1,11 @@
 "use client";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
 import { Button } from "@/components/ui/button";
+import { TECH_STACK_IMAGES } from "@/constants/techStack";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Github, MailIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import StackIcon from "tech-stack-icons";
-import { TECH_STACK_IMAGES } from "@/constants/techStack";
 import AnimatedDots from "./AnimatedDots";
 export default function Header() {
   const { scrollY } = useScroll();
@@ -98,8 +98,8 @@ export default function Header() {
           className="mb-8 max-w-[280px] text-gray-600 sm:max-w-[370px] lg:max-w-[402px] xl:max-w-[540px] dark:text-gray-400"
         >
           <p className="text-center text-sm leading-relaxed lg:text-lg">
-            I create experiences where every <span className="font-bold">pixel</span> has a{" "}
-            <span className="font-bold">purpose</span> — experiences I&apos;d want to use myself.
+            I create experiences where <span className="font-bold">every pixel has a purpose</span>{" "}
+            — experiences I&apos;d want to use myself.
           </p>
         </motion.div>
 

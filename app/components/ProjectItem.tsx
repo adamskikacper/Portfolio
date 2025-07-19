@@ -80,9 +80,9 @@ export const ProjectItem = ({ project, index, totalProjects }: ProjectItemProps)
 
       <motion.div
         variants={containerVariants}
-        whileInView="visible"
         initial="hidden"
-        viewport={{ once: true, amount: 0.5 }}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
         className={`!m-0 w-full lg:w-auto ${index % 2 === 0 ? "timeline-start mr-2 lg:pr-5" : "timeline-end ml-2 lg:pl-5"} `}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

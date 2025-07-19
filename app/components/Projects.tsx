@@ -42,11 +42,7 @@ const Projects = ({ projects }: ProjectProps) => {
         </motion.p>
       </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+      <div
         className="relative"
       >
         <ul className="timeline timeline-vertical timeline-snap-icon z-10 mb-10 flex flex-col gap-5 max-lg:timeline-compact lg:gap-0">
@@ -59,7 +55,7 @@ const Projects = ({ projects }: ProjectProps) => {
             />
           ))}
         </ul>
-      </motion.div>
+      </div>
     </section>
   );
 };

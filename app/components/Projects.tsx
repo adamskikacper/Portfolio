@@ -22,6 +22,26 @@ const Projects = ({ projects }: ProjectProps) => {
       >
         Projects
       </motion.h2>
+
+      <motion.div
+        variants={itemVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="mb-8 sm:mb-12 md:mb-16 lg:mb-20"
+      >
+        <motion.p
+          variants={itemVariants}
+          className="max-w-4xl leading-relaxed text-gray-600 dark:text-gray-300"
+        >
+          To fully illustrate my journey and continuous development as a developer, I've
+          deliberately chosen not to remove any of my projects as they offer a transparent look at
+          my ongoing growth and learning progression. Please view each project as a milestone,
+          showcasing the evolution of my skills over time, rather than a reflection of my current
+          capabilities.
+        </motion.p>
+      </motion.div>
+
       <motion.div
         variants={containerVariants}
         initial="hidden"

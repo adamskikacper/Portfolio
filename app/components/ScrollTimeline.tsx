@@ -61,9 +61,10 @@ const ScrollTimeline = ({
             const tickIcon = tickIconsRef.current[index];
             gsap.to(marker, {
               scale: 2.2,
+              opacity: 1,
               backgroundColor: "#EAB30E",
-              duration: 1,
-              ease: "bounce.out",
+              duration: 0.5,
+              ease: "power1.out",
             });
             if (tickIcon) {
               gsap.to(tickIcon, {
@@ -88,14 +89,14 @@ const ScrollTimeline = ({
             const tickIcon = tickIconsRef.current[index];
             gsap.to(marker, {
               scale: 1.2,
+              opacity: 0,
               backgroundColor: "#EAB30E",
-              duration: 1,
-              ease: "bounce.out",
+              duration: 0.3,
+              ease: "power1.out",
             });
             if (tickIcon) {
               gsap.to(tickIcon, {
                 scale: 1,
-                ease: "bounce.out",
               });
             }
           },
@@ -125,11 +126,11 @@ const ScrollTimeline = ({
       className="relative h-full w-2"
       style={{ height: `${projectCount * 100}vh` }}
     >
-      <div className="dark:bg-gray-8 absolute left-1/2 top-0 h-full w-2 -translate-x-1/2 bg-[#343434]" />
+      <div className="absolute left-1/2 top-0 h-full w-2 -translate-x-1/2 bg-background-primary-light dark:bg-background-primary-dark" />
 
       <div
         ref={progressLineRef}
-        className="timeline-gradient absolute left-1/2 top-0 h-full w-2 origin-top -translate-x-1/2"
+        className="timeline-gradient absolute left-1/2 top-0 h-full w-2 origin-top -translate-x-1/2 rounded-full"
       />
 
       {Array.from({ length: projectCount }).map((_, index) => (
@@ -138,7 +139,7 @@ const ScrollTimeline = ({
           ref={(el) => {
             markersRef.current[index] = el;
           }}
-          className="absolute left-1/2 flex h-6 w-6 translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-100 shadow-md dark:border-black"
+          className="absolute left-1/2 flex h-6 w-6 translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-100 opacity-0 shadow-md dark:border-black"
           style={{
             top: `${index * 100 + 50}vh`,
             transform: "translateX(-50%) translateY(-50%)",

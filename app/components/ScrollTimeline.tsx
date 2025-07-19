@@ -2,6 +2,7 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CheckCircle } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 if (typeof window !== "undefined") {
@@ -22,6 +23,7 @@ const ScrollTimeline = ({
   const timelineRef = useRef<HTMLDivElement>(null);
   const progressLineRef = useRef<HTMLDivElement>(null);
   const markersRef = useRef<(HTMLDivElement | null)[]>([]);
+  const tickIconsRef = useRef<(SVGSVGElement | null)[]>([]);
 
   useEffect(() => {
     if (!timelineRef.current || !progressLineRef.current) return;
@@ -56,25 +58,46 @@ const ScrollTimeline = ({
           start: `${markerPosition}% center`,
           end: `${markerPosition}% center`,
           onEnter: () => {
+            const tickIcon = tickIconsRef.current[index];
             gsap.to(marker, {
-              scale: 2,
+              scale: 2.2,
               backgroundColor: "#EAB30E",
               duration: 1,
               ease: "bounce.out",
             });
+            if (tickIcon) {
+              gsap.to(tickIcon, {
+                opacity: 1,
+              });
+            }
 
             if (onProjectTrigger) {
               onProjectTrigger(index);
             }
           },
-          onLeave: () => {},
+          onLeave: () => {
+            const tickIcon = tickIconsRef.current[index];
+            if (tickIcon) {
+              gsap.to(tickIcon, {
+                scale: 1.2,
+                ease: "bounce.out",
+              });
+            }
+          },
           onEnterBack: () => {
+            const tickIcon = tickIconsRef.current[index];
             gsap.to(marker, {
               scale: 1.2,
               backgroundColor: "#EAB30E",
               duration: 1,
               ease: "bounce.out",
             });
+            if (tickIcon) {
+              gsap.to(tickIcon, {
+                scale: 1,
+                ease: "bounce.out",
+              });
+            }
           },
         });
       }
@@ -100,6 +123,7 @@ const ScrollTimeline = ({
     <div
       ref={timelineRef}
       className="relative h-full w-2"
+      style={{ height: `${projectCount * 100}vh` }}
     >
       <div className="dark:bg-gray-8 absolute left-1/2 top-0 h-full w-2 -translate-x-1/2 bg-[#343434]" />
 
@@ -114,12 +138,19 @@ const ScrollTimeline = ({
           ref={(el) => {
             markersRef.current[index] = el;
           }}
-          className="absolute left-1/2 h-6 w-6 translate-x-1/2 rounded-full border-4 border-white bg-gray-100 shadow-md dark:border-black"
+          className="absolute left-1/2 flex h-6 w-6 translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-100 shadow-md dark:border-black"
           style={{
-            top: `${((index + 0.5) / projectCount) * 100}%`,
+            top: `${index * 100 + 50}vh`,
             transform: "translateX(-50%) translateY(-50%)",
           }}
-        />
+        >
+          <CheckCircle
+            ref={(el) => {
+              tickIconsRef.current[index] = el;
+            }}
+            className="h-3 w-3 text-black opacity-0 transition-opacity duration-300"
+          />
+        </div>
       ))}
     </div>
   );

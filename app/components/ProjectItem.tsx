@@ -46,9 +46,7 @@ export const ProjectItem = ({
         variants={containerVariants}
         initial="hidden"
         animate={isTriggered ? "visible" : "hidden"}
-        className={`w-full max-w-lg ${
-          gridColumn === "left" ? "lg:mr-auto" : gridColumn === "right" ? "lg:ml-auto" : "mx-auto"
-        }`}
+        className="w-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

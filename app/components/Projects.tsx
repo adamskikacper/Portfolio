@@ -55,9 +55,48 @@ const Projects = ({ projects }: ProjectProps) => {
         </motion.p>
       </motion.div>
 
-      <div className="relative">
-        {/* Timeline (background) */}
-        <div className="absolute left-1/2 top-0 z-0 hidden h-full -translate-x-1/2 lg:block">
+      {/* Mobile Layout - Single Column */}
+      <div className="block lg:hidden space-y-8">
+        {projects.map((project, index) => (
+          <ProjectItem
+            key={project.id}
+            project={project}
+            index={index}
+            totalProjects={projects.length}
+            gridColumn="mobile"
+            isTriggered={triggeredProjects.includes(index)}
+          />
+        ))}
+      </div>
+
+      {/* Desktop Layout - 3 Column Grid */}
+      <div className="hidden lg:grid lg:gap-8 xl:gap-12 relative" style={{ gridTemplateColumns: '1fr 50px 1fr', height: `${projects.length * 100}vh` }}>
+        {/* Left Column - Even indexed projects */}
+        <div className="relative">
+          {projects.map((project, index) => 
+            index % 2 === 0 ? (
+              <div 
+                key={project.id}
+                className="absolute w-full"
+                style={{ 
+                  top: `${index * 100 + 50}vh`,
+                  transform: "translateY(-50%)"
+                }}
+              >
+                <ProjectItem
+                  project={project}
+                  index={index}
+                  totalProjects={projects.length}
+                  gridColumn="left"
+                  isTriggered={triggeredProjects.includes(index)}
+                />
+              </div>
+            ) : null
+          )}
+        </div>
+
+        {/* Center Column - Timeline */}
+        <div className="flex justify-center">
           <ScrollTimeline
             projectCount={projects.length}
             sectionId="projects"
@@ -65,18 +104,28 @@ const Projects = ({ projects }: ProjectProps) => {
           />
         </div>
 
-        {/* Projects Container */}
-        <div className="relative z-10 space-y-8 lg:space-y-16">
-          {projects.map((project, index) => (
-            <ProjectItem
-              key={project.id}
-              project={project}
-              index={index}
-              totalProjects={projects.length}
-              gridColumn={index % 2 === 0 ? "left" : "right"}
-              isTriggered={triggeredProjects.includes(index)}
-            />
-          ))}
+        {/* Right Column - Odd indexed projects */}
+        <div className="relative">
+          {projects.map((project, index) => 
+            index % 2 === 1 ? (
+              <div 
+                key={project.id}
+                className="absolute w-full"
+                style={{ 
+                  top: `${index * 100 + 50}vh`,
+                  transform: "translateY(-50%)"
+                }}
+              >
+                <ProjectItem
+                  project={project}
+                  index={index}
+                  totalProjects={projects.length}
+                  gridColumn="right"
+                  isTriggered={triggeredProjects.includes(index)}
+                />
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     </section>

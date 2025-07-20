@@ -79,24 +79,27 @@ export const useLoadingAnimation = () => {
         .to(".header-title", {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.8,
           stagger: {
             amount: 0.1,
             from: "center",
           },
           ease: "power2.out",
+          delay: -0.5,
         })
         .to(".header-description", {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power2.out",
+          delay: -0.5,
         })
         .to(".header-buttons", {
           opacity: 1,
           y: 0,
-          duration: 0.6,
+          duration: 0.8,
           ease: "power2.out",
+          delay: -0.5,
         });
     }
   }, []);

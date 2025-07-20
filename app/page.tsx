@@ -164,7 +164,7 @@ const projects: ProjectTypes[] = [
 
 export default function Home() {
   const headerRef = useRef<HeaderRefs>(null);
-  const { showLoading, loadingRef, loadingComplete } = useLoadingAnimation();
+  const { showLoading, loadingRef } = useLoadingAnimation();
 
   return (
     <div className="relative">
@@ -175,7 +175,7 @@ export default function Home() {
           id="home"
           className="relative lg:dark:bg-background-primary-dark"
         >
-          <Header ref={headerRef} loadingComplete={loadingComplete} />
+          <Header ref={headerRef} />
         </div>
 
         <div

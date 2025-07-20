@@ -3,12 +3,10 @@ import { useEffect, useRef, useState } from "react";
 
 export const useLoadingAnimation = () => {
   const [showLoading, setShowLoading] = useState(true);
-  const [loadingComplete, setLoadingComplete] = useState(false);
   const loadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (loadingRef.current) {
-      // Set initial loading elements
       gsap.set(".loading-letter", {
         yPercent: 100,
       });
@@ -16,6 +14,21 @@ export const useLoadingAnimation = () => {
       gsap.set(".spinner", {
         yPercent: 50,
         opacity: 0,
+      });
+
+      gsap.set(".header-title", {
+        opacity: 0,
+        y: 50,
+      });
+
+      gsap.set(".header-description", {
+        opacity: 0,
+        y: 30,
+      });
+
+      gsap.set(".header-buttons", {
+        opacity: 0,
+        y: 20,
       });
 
       const tl = gsap.timeline();
@@ -61,11 +74,32 @@ export const useLoadingAnimation = () => {
           ease: "power2.inOut",
           onComplete: () => {
             setShowLoading(false);
-            setLoadingComplete(true);
           },
+        })
+        .to(".header-title", {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: {
+            amount: 0.1,
+            from: "center",
+          },
+          ease: "power2.out",
+        })
+        .to(".header-description", {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        })
+        .to(".header-buttons", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
         });
     }
   }, []);
 
-  return { showLoading, loadingRef, loadingComplete };
+  return { showLoading, loadingRef };
 };

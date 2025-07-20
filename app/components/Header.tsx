@@ -1,11 +1,10 @@
 "use client";
 import useStaggerAnimation from "@/app/hooks/useStaggerAnimation";
-import { useHeaderAnimation } from "@/app/hooks/useHeaderAnimation";
 import { Button } from "@/components/ui/button";
 import { TECH_STACK_IMAGES } from "@/constants/techStack";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Github, MailIcon } from "lucide-react";
-import { useEffect, useRef, useState, RefObject, forwardRef, useImperativeHandle } from "react";
+import { RefObject, forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import StackIcon from "tech-stack-icons";
 import AnimatedDots from "./AnimatedDots";
 
@@ -15,31 +14,20 @@ export interface HeaderRefs {
   buttonsRef: RefObject<HTMLDivElement>;
 }
 
-interface HeaderProps {
-  loadingComplete: boolean;
-}
-
-const Header = forwardRef<HeaderRefs, HeaderProps>(({ loadingComplete }, ref) => {
+const Header = forwardRef<HeaderRefs>((_props, ref) => {
   const { scrollY } = useScroll();
   const [windowWidth, setWindowWidth] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  
+
   useImperativeHandle(ref, () => ({
     titleRef,
     descriptionRef,
     buttonsRef,
   }));
 
-  useHeaderAnimation({
-    titleRef,
-    descriptionRef,
-    buttonsRef,
-    loadingComplete,
-  });
-  
   const isInView = useInView(headerRef, {
     once: false,
     amount: 0.3,
@@ -107,43 +95,31 @@ const Header = forwardRef<HeaderRefs, HeaderProps>(({ loadingComplete }, ref) =>
         }}
       />
 
-      <motion.div
-        className="container z-10 flex flex-col items-center lg:m-0 lg:w-auto lg:items-start xl:mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate="hidden"
-      >
-        <motion.div
-          variants={itemVariants}
-          className="relative"
-        >
-          <h1 
+      <div className="container z-10 flex flex-col items-center lg:m-0 lg:w-auto lg:items-start xl:mx-auto">
+        <div className="relative">
+          <h1
             ref={titleRef}
-            className="text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-[120px] xl:max-w-[540px] xl:text-[165px] dark:text-gray-300"
+            className="header-title text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-[120px] xl:max-w-[540px] xl:text-[165px] dark:text-gray-300"
           >
             Hey, <span className="ml-[20px]"></span>I&apos;m Kacper
           </h1>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={itemVariants}
-          className="mb-8 max-w-[280px] text-gray-600 sm:max-w-[370px] lg:max-w-[402px] xl:max-w-[540px] dark:text-gray-400"
-        >
-          <p 
+        <div className="mb-8 max-w-[280px] text-gray-600 sm:max-w-[370px] lg:max-w-[402px] xl:max-w-[540px] dark:text-gray-400">
+          <p
             ref={descriptionRef}
-            className="text-center text-sm leading-relaxed lg:text-lg"
+            className="header-description text-center text-sm leading-relaxed lg:text-lg"
           >
             I create experiences where <span className="font-bold">every pixel has a purpose</span>{" "}
             — experiences I&apos;d want to use myself.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           ref={buttonsRef}
-          variants={containerVariants}
-          className="grid grid-cols-2 gap-4 md:flex-col lg:mx-auto"
+          className="header-buttons grid grid-cols-2 gap-4 md:flex-col lg:mx-auto"
         >
-          <motion.div variants={itemVariants}>
+          <div>
             <Button
               variant="outline"
               className="w-full transition-transform hover:scale-105"
@@ -153,9 +129,9 @@ const Header = forwardRef<HeaderRefs, HeaderProps>(({ loadingComplete }, ref) =>
               <Github className="mr-2 h-4 w-4" />
               Github
             </Button>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants}>
+          <div>
             <Button
               variant="secondary"
               className="w-full transition-transform hover:scale-105"
@@ -165,9 +141,9 @@ const Header = forwardRef<HeaderRefs, HeaderProps>(({ loadingComplete }, ref) =>
               <MailIcon className="mr-2 h-4 w-4" />
               Contact Me
             </Button>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+      </div>
 
       <div className="absolute right-[-500px] top-[-200px] hidden rotate-[-20deg] lg:block">
         <div className="grid grid-cols-3 lg:grid-cols-4 lg:gap-10">

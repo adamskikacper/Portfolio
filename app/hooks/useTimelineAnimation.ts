@@ -122,7 +122,15 @@ const useTimelineAnimation = ({
         }
       });
     };
-  }, [timelineRef, progressLineRef, markersRef, tickIconsRef, projectCount, sectionId, onProjectTrigger]);
+  }, [
+    timelineRef,
+    progressLineRef,
+    markersRef,
+    tickIconsRef,
+    projectCount,
+    sectionId,
+    onProjectTrigger,
+  ]);
 };
 
 export default useTimelineAnimation;

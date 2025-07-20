@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import AboutMe from "./components/AboutMe";
 import ContactForm from "./components/ContactForm";
 import ExperienceContainer from "./components/ExperienceContainer";
 import Header from "./components/Header";
-import LoadingState from "./components/LoadingState";
+import LoadingOverlay from "./components/LoadingOverlay";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import { useLoadingAnimation } from "./hooks/useLoadingAnimation";
 import type { ProjectTypes } from "./types/projectTypes";
 
 const projects: ProjectTypes[] = [
@@ -101,32 +101,10 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 4,
-    title: "City of Manchester",
-    description:
-      "A high school assignment, focused on the city of Manchester. It was built using pure HTML, CSS, and JavaScript. The project is simple and served as a foundational exercise in front-end development.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "JavaScript",
-    ],
-    projectLink: "https://adamskikacper.github.io/City-Of-Manchester/",
-    githubLink: "https://adamskikacper.github.io/City-Of-Manchester/",
-    imageUrl: "/assets/images/city-of-manchester.webp",
-    videoUrl: "/assets/videos/city-of-manchesterv2.mp4",
-    status: "legacy",
-  },
-  {
-    id: 5,
     title: "Charity Organisation",
     description:
-      "A project that served as an exercise for layout development. I used an existing design template and translated it into code. The site is simple, without any functionality, and served as a practice exercise in layout creation.",
-    technologies: ["HTML", "CSS", "HTML", "CSS", "HTML", "CSS"],
+      "A university assignment, where I developed a website for a charity organisation using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the charity's mission, services, and how to get involved.",
+    technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
     projectLink: "https://adamskikacper.github.io/Charity-Organisation/",
     githubLink: "https://adamskikacper.github.io/Charity-Organisation/",
     imageUrl: "/assets/images/charity-organisation.webp",
@@ -134,13 +112,25 @@ const projects: ProjectTypes[] = [
     status: "legacy",
   },
   {
-    id: 6,
-    title: "The United Arab Emirates",
+    id: 5,
+    title: "City of Manchester",
     description:
-      "Similarly, this project was aimed at enhancing my CSS skills for layout development. I worked with a pre-designed template and converted it into code. The site is basic, with no functionality, and served as an additional practice exercise in creating responsive layouts.",
-    technologies: ["HTML", "CSS", "HTML", "CSS", "HTML", "CSS"],
-    projectLink: "https://adamskikacper.github.io/The-United-Arab-Emirates/",
-    githubLink: "https://adamskikacper.github.io/The-United-Arab-Emirates/",
+      "A university assignment, where I developed a website for the City of Manchester using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the city's history, attractions, and events.",
+    technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
+    projectLink: "https://adamskikacper.github.io/City-of-Manchester/",
+    githubLink: "https://adamskikacper.github.io/City-of-Manchester/",
+    imageUrl: "/assets/images/city-of-manchester.webp",
+    videoUrl: "/assets/videos/city-of-manchesterv2.mp4",
+    status: "legacy",
+  },
+  {
+    id: 6,
+    title: "Dubai Guide",
+    description:
+      "A university assignment, where I developed a website for a Dubai guide using HTML, CSS, and JavaScript. The website features a responsive design and includes information about Dubai's attractions, hotels, and restaurants.",
+    technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
+    projectLink: "https://adamskikacper.github.io/Dubai-Guide/",
+    githubLink: "https://adamskikacper.github.io/Dubai-Guide/",
     imageUrl: "/assets/images/dubai-guide.webp",
     videoUrl: "/assets/videos/dubai-guidev2.mp4",
     status: "legacy",
@@ -149,18 +139,8 @@ const projects: ProjectTypes[] = [
     id: 7,
     title: "Upstairs Gallery",
     description:
-      "A website for a gallery in Berkhamsted, created as part of a college competition for an actual client. I used HTML, CSS, and JavaScript to build a simple website to showcase the gallery's work. Competing against other students, I won first place for delivering a functional solution. This project provided hands-on experience in front-end development and working with clients.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "JavaScript",
-    ],
+      "A university assignment, where I developed a website for an art gallery using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the gallery's exhibitions, artists, and events.",
+    technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
     projectLink: "https://adamskikacper.github.io/Upstairs-Gallery/",
     githubLink: "https://adamskikacper.github.io/Upstairs-Gallery/",
     imageUrl: "/assets/images/upstairs-gallery.webp",
@@ -182,18 +162,10 @@ const projects: ProjectTypes[] = [
 ];
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { showLoading, loadingRef } = useLoadingAnimation();
 
   return (
-    <LoadingState isLoading={isLoading}>
+    <div className="relative">
       <div className="relative overflow-hidden bg-background-primary-light text-text-primary-light sm:overflow-visible dark:bg-background-primary-dark dark:text-text-primary-dark">
         <Navbar />
 
@@ -239,6 +211,8 @@ export default function Home() {
           <ContactForm />
         </div>
       </div>
-    </LoadingState>
+
+      {showLoading && <LoadingOverlay loadingRef={loadingRef} />}
+    </div>
   );
 }

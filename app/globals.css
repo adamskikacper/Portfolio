@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-oswald), sans-serif;
+    font-weight: 700;
+  }
+}
+
 @layer utilities {
   .text-shine {
     position: relative;

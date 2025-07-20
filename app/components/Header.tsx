@@ -88,8 +88,8 @@ export default function Header() {
           variants={itemVariants}
           className="relative"
         >
-          <h1 className="text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-8xl xl:max-w-[540px] xl:text-9xl dark:text-gray-300">
-            Hey, I&apos;m Kacper
+          <h1 className="text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-[120px] xl:max-w-[540px] xl:text-[165px] dark:text-gray-300">
+            Hey, <span className="ml-[20px]"></span>I&apos;m Kacper
           </h1>
         </motion.div>
 

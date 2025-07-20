@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
 interface LoadingOverlayProps {
@@ -6,6 +6,14 @@ interface LoadingOverlayProps {
 }
 
 export default function LoadingOverlay({ loadingRef }: LoadingOverlayProps) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
   return (
     <div
       ref={loadingRef}

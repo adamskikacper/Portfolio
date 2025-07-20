@@ -41,7 +41,7 @@ export const useLoadingAnimation = () => {
           delay: 0.5,
           stagger: {
             amount: 0.1,
-            from: "center",
+            from: "edges",
           },
           ease: "power2.inOut",
         })

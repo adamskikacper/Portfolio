@@ -3,13 +3,14 @@
 import AboutMe from "./components/AboutMe";
 import ContactForm from "./components/ContactForm";
 import ExperienceContainer from "./components/ExperienceContainer";
-import Header from "./components/Header";
+import Header, { HeaderRefs } from "./components/Header";
 import LoadingOverlay from "./components/LoadingOverlay";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import { useLoadingAnimation } from "./hooks/useLoadingAnimation";
 import type { ProjectTypes } from "./types/projectTypes";
+import { useRef } from "react";
 
 const projects: ProjectTypes[] = [
   {
@@ -162,7 +163,8 @@ const projects: ProjectTypes[] = [
 ];
 
 export default function Home() {
-  const { showLoading, loadingRef } = useLoadingAnimation();
+  const headerRef = useRef<HeaderRefs>(null);
+  const { showLoading, loadingRef, loadingComplete } = useLoadingAnimation();
 
   return (
     <div className="relative">
@@ -173,7 +175,7 @@ export default function Home() {
           id="home"
           className="relative lg:dark:bg-background-primary-dark"
         >
-          <Header />
+          <Header ref={headerRef} loadingComplete={loadingComplete} />
         </div>
 
         <div

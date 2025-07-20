@@ -89,9 +89,8 @@ const AboutMe = () => {
             >
               While my day-to-day work still heavily involves Angular, I'm also diving deeper into
               React, keen to explore new challenges and expand my skillset. I'm a self-motivated
-              individual, known for my strong attention to detail
-              and proven record of taking full ownership and driving projects to completion
-              independently.
+              individual, known for my strong attention to detail and proven record of taking full
+              ownership and driving projects to completion independently and as a team.
             </motion.p>
             <motion.p
               variants={itemVariants}

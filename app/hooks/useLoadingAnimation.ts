@@ -3,10 +3,12 @@ import { useEffect, useRef, useState } from "react";
 
 export const useLoadingAnimation = () => {
   const [showLoading, setShowLoading] = useState(true);
+  const [loadingComplete, setLoadingComplete] = useState(false);
   const loadingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (loadingRef.current) {
+      // Set initial loading elements
       gsap.set(".loading-letter", {
         yPercent: 100,
       });
@@ -59,10 +61,11 @@ export const useLoadingAnimation = () => {
           ease: "power2.inOut",
           onComplete: () => {
             setShowLoading(false);
+            setLoadingComplete(true);
           },
         });
     }
   }, []);
 
-  return { showLoading, loadingRef };
+  return { showLoading, loadingRef, loadingComplete };
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import AboutMe from "./components/AboutMe";
 import ContactForm from "./components/ContactForm";
 import ExperienceContainer from "./components/ExperienceContainer";
@@ -10,21 +11,20 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import { useLoadingAnimation } from "./hooks/useLoadingAnimation";
 import type { ProjectTypes } from "./types/projectTypes";
-import { useRef } from "react";
 
 const projects: ProjectTypes[] = [
   {
     id: 1,
     title: "Decentralised Freelance Marketplace",
     description:
-      "A decentralised freelance marketplace where clients can post jobs and freelancers submit bids in Ethereum to complete the job. Once a bid is accepted, a smart contract is created to securely hold the payment in escrow. When job is completed, the freelancer submits the work for approval, and upon client satisfaction, the smart contract automatically releases the payment.",
+      "A decentralised freelance marketplace where clients can post jobs and freelancers submit bids in Ethereum to complete the job. This project is still in development. Feel free to explore the dashboard in the meantime by signing up. Please note that the backend is not yet implemented.",
     technologies: [
       "React",
       "TypeScript",
       "Supabase",
       "Tailwind CSS",
       "Radix UI",
-      "Motion",
+      "GSAP",
       "React Query",
       "Solidity",
       "Ethereum",
@@ -36,7 +36,7 @@ const projects: ProjectTypes[] = [
       "Supabase",
       "Tailwind CSS",
       "Radix UI",
-      "Motion",
+      "GSAP",
       "React Query",
       "Solidity",
       "Ethereum",
@@ -81,7 +81,7 @@ const projects: ProjectTypes[] = [
     id: 3,
     title: "Luxury Holidays",
     description:
-      "A university assignment, where I developed a CRUD website using PHP and MySQL with phpMyAdmin to store user data and holiday information. It features an admin page that allows users to add, edit, remove, and update holidays. This project helped me strengthen my skills in back-end development and database management.",
+      "A CRUD website built with PHP and MySQL using phpMyAdmin for data management. The website stores user data and holiday information, featuring an admin page for adding, editing, removing, and updating holidays.",
     technologies: [
       "PHP",
       "MySQL",
@@ -102,21 +102,9 @@ const projects: ProjectTypes[] = [
   },
   {
     id: 4,
-    title: "Charity Organisation",
-    description:
-      "A university assignment, where I developed a website for a charity organisation using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the charity's mission, services, and how to get involved.",
-    technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
-    projectLink: "https://adamskikacper.github.io/Charity-Organisation/",
-    githubLink: "https://adamskikacper.github.io/Charity-Organisation/",
-    imageUrl: "/assets/images/charity-organisation.webp",
-    videoUrl: "/assets/videos/charity-organisationv2.mp4",
-    status: "legacy",
-  },
-  {
-    id: 5,
     title: "City of Manchester",
     description:
-      "A university assignment, where I developed a website for the City of Manchester using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the city's history, attractions, and events.",
+      "A high school assignment, focused on the city of Manchester. It was built using HTML, CSS, and JavaScript. The project served as a foundational exercise in front-end development and layout development.",
     technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
     projectLink: "https://adamskikacper.github.io/City-of-Manchester/",
     githubLink: "https://adamskikacper.github.io/City-of-Manchester/",
@@ -125,10 +113,22 @@ const projects: ProjectTypes[] = [
     status: "legacy",
   },
   {
-    id: 6,
-    title: "Dubai Guide",
+    id: 5,
+    title: "Charity Organisation",
     description:
-      "A university assignment, where I developed a website for a Dubai guide using HTML, CSS, and JavaScript. The website features a responsive design and includes information about Dubai's attractions, hotels, and restaurants.",
+      "A project that served as an exercise for layout development. I used an existing design template and translated it into code. The site is simple, without any functionality, and served as a practice exercise.",
+    technologies: ["HTML", "CSS"],
+    projectLink: "https://adamskikacper.github.io/Charity-Organisation/",
+    githubLink: "https://adamskikacper.github.io/Charity-Organisation/",
+    imageUrl: "/assets/images/charity-organisation.webp",
+    videoUrl: "/assets/videos/charity-organisationv2.mp4",
+    status: "legacy",
+  },
+  {
+    id: 6,
+    title: "The United Arab Emirates",
+    description:
+      "Similarly, this project was aimed at enhancing my CSS skills for layout development. I worked with a pre-designed template and converted it into code.",
     technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
     projectLink: "https://adamskikacper.github.io/Dubai-Guide/",
     githubLink: "https://adamskikacper.github.io/Dubai-Guide/",
@@ -140,7 +140,7 @@ const projects: ProjectTypes[] = [
     id: 7,
     title: "Upstairs Gallery",
     description:
-      "A university assignment, where I developed a website for an art gallery using HTML, CSS, and JavaScript. The website features a responsive design and includes information about the gallery's exhibitions, artists, and events.",
+      "A website for a gallery in Berkhamsted, created as part of a college competition for an actual client. I used HTML, CSS, and JavaScript to build a website to showcase the gallery's work. Competing against other students, I won first place for delivering a functional solution. This project provided hands-on experience in front-end development and working with clients.",
     technologies: ["HTML", "CSS", "JavaScript", "HTML", "CSS", "JavaScript"],
     projectLink: "https://adamskikacper.github.io/Upstairs-Gallery/",
     githubLink: "https://adamskikacper.github.io/Upstairs-Gallery/",
@@ -152,7 +152,7 @@ const projects: ProjectTypes[] = [
     id: 8,
     title: "Electro Constructor",
     description:
-      "Created during high school as my very first attempt at web development. The technologies used were HTML to structure the content and CSS to style the page, providing a solid foundation for layout development.",
+      "My very first attempt at web development. The technologies used were HTML to structure the content and CSS to style the page, providing a solid foundation for layout development.",
     technologies: ["HTML", "CSS", "HTML", "CSS", "HTML", "CSS"],
     projectLink: "https://adamskikacper.github.io/Electro-Constructor/",
     githubLink: "https://adamskikacper.github.io/Electro-Constructor/",

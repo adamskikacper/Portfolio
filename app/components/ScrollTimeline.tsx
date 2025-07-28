@@ -49,7 +49,7 @@ const ScrollTimeline = ({
           ref={(el) => {
             markersRef.current[index] = el;
           }}
-          className="absolute left-1/2 flex h-6 w-6 translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-100 opacity-0 shadow-md dark:border-black"
+          className="border-border-background-primary-light absolute left-1/2 flex h-6 w-6 translate-x-1/2 items-center justify-center rounded-full border-4 bg-gray-100 opacity-0 shadow-md dark:border-background-primary-dark"
           style={{
             top: `${index * 100 + 10}vh`,
             transform: "translateX(-50%)",

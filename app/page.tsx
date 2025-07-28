@@ -95,7 +95,7 @@ const projects: ProjectTypes[] = [
       "CSS",
     ],
     projectLink: "https://adamskikacper.github.io/Luxury-Holidays/",
-    githubLink: "https://adamskikacper.github.io/Luxury-Holidays/",
+    githubLink: "https://github.com/adamskikacper/Luxury-Holidays",
     imageUrl: "/assets/images/luxury-holidays.webp",
     videoUrl: "/assets/videos/luxury-holidaysv2.mp4",
     status: "legacy",

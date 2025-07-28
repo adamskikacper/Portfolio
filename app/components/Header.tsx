@@ -45,7 +45,7 @@ const Header = forwardRef<HeaderRefs>((_props, ref) => {
   const headerY = useTransform(scrollY, [0, 500], [0, -150]);
   const scale = useTransform(scrollY, [500, 0], [1, 0.85]);
   const borderRadius = useTransform(scrollY, [500, 0], [0, 28]);
-  const { containerVariants, itemVariants } = useStaggerAnimation();
+  const { itemVariants } = useStaggerAnimation();
   const imageY = useTransform(scrollY, [0, 2000], isInView ? [0, -1200] : [0, 0]);
 
   const handleGithubClick = () => {
@@ -99,7 +99,7 @@ const Header = forwardRef<HeaderRefs>((_props, ref) => {
         <div className="relative">
           <h1
             ref={titleRef}
-            className="header-title text-shine mb-2 max-w-[402px] text-center text-[70px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-[120px] xl:max-w-[540px] xl:text-[165px] dark:text-gray-300"
+            className="header-title text-shine mb-2 max-w-[402px] text-center text-[90px] font-extrabold uppercase leading-none text-gray-600 sm:text-[90px] lg:text-left lg:text-[120px] xl:max-w-[540px] xl:text-[165px] dark:text-gray-300"
           >
             Hey, <span className="ml-[20px]"></span>I&apos;m Kacper
           </h1>
@@ -108,7 +108,7 @@ const Header = forwardRef<HeaderRefs>((_props, ref) => {
         <div className="mb-8 max-w-[280px] text-gray-600 sm:max-w-[370px] lg:max-w-[402px] xl:max-w-[540px] dark:text-gray-400">
           <p
             ref={descriptionRef}
-            className="header-description text-center text-sm leading-relaxed lg:text-lg"
+            className="header-description mt-5 text-center text-sm leading-relaxed lg:text-lg"
           >
             I create experiences where <span className="font-bold">every pixel has a purpose</span>{" "}
             — experiences I&apos;d want to use myself.

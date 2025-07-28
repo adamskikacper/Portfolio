@@ -20,15 +20,13 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
-  // Initialize Formspree with your form ID
-  // IMPORTANT: Replace "xpzvgkrw" with your actual Formspree form ID from https://formspree.io/forms/
   const [formspreeState, handleFormspreeSubmit] = useFormspree("xeoaqndn");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const animationContainerRef = useRef(null);
   const isInView = useInView(animationContainerRef, { once: true, amount: 0.3 });
   const [isFormHovered, setIsFormHovered] = useState(false);
   const { itemVariants } = useStaggerAnimation();
-  // Initialize react-hook-form with zod validation
+
   const {
     register,
     handleSubmit,
@@ -43,7 +41,6 @@ export default function ContactForm() {
     },
   });
 
-  // Handle form submission
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     try {
@@ -56,18 +53,20 @@ export default function ContactForm() {
     }
   };
 
-  // Handle resetting the form after successful submission
   const handleReset = () => {
     reset();
-    // Create a new submission context by forcing a re-render
+
     window.location.href = window.location.pathname + "#contact";
   };
 
   return (
-    <section id="contact">
+    <section
+      id="contact"
+      className="md:pt-20"
+    >
       <motion.div className="mx-auto max-w-4xl">
         <div className="mb-8">
-          <div className="relative flex w-min flex-wrap items-center gap-2 sm:gap-4 md:w-max">
+          <div className="relative flex flex-wrap items-center gap-2 sm:gap-4 md:w-max">
             <motion.h2
               variants={itemVariants}
               initial="hidden"
@@ -93,7 +92,7 @@ export default function ContactForm() {
                   },
                 },
               }}
-              className="absolute right-[-240px] top-[-100px] h-[220px] w-[220px] md:top-[-140px] lg:right-[-320px] lg:top-[-200px] lg:h-[300px] lg:w-[300px]"
+              className="absolute right-[-240px] top-[-100px] hidden h-[220px] w-[220px] md:top-[-140px] lg:right-[-320px] lg:top-[-200px] lg:h-[300px] lg:w-[300px] xl:block"
             >
               {isInView && (
                 <DotLottieReact

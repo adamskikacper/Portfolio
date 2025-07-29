@@ -81,7 +81,8 @@ const AboutMe = () => {
               in Angular. I hold a First Class Honours degree in Computer Science with a
               specialisation in Web Development, and my strengths lie in translating designs into
               pixel-perfect, responsive user interfaces and delivering clean, visually consistent
-              layouts.
+              layouts — an area where AI still struggles, unlike programming logic and repetitive
+              coding tasks.
             </motion.p>
             <motion.p
               variants={itemVariants}
@@ -89,8 +90,9 @@ const AboutMe = () => {
             >
               While my day-to-day work still heavily involves Angular, I'm also diving deeper into
               React, keen to explore new challenges and expand my skillset. I'm a self-motivated
-              individual, known for my strong attention to detail and proven record of taking full
-              ownership and driving projects to completion independently and as a part of a team.
+              individual, known for my strong attention to detail and proven track record of taking
+              full ownership and driving projects to completion independently and as a part of a
+              team.
             </motion.p>
             <motion.p
               variants={itemVariants}

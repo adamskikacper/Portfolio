@@ -81,7 +81,7 @@ const AboutMe = () => {
               in Angular. I hold a First Class Honours degree in Computer Science with a
               specialisation in Web Development, and my strengths lie in translating designs into
               pixel-perfect, responsive user interfaces and delivering clean, visually consistent
-              layouts — an area where AI tools still falls short, in contrast to logic-based
+              layouts — an area where AI tools continue to fall short, in contrast to logic-based
               problems.
             </motion.p>
             <motion.p

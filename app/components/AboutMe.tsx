@@ -108,8 +108,7 @@ const AboutMe = () => {
             >
               Building something great together is what truly excites me. And if you want your
               website built with a little extra "polish" — just like a perfectly made pierogi 🥟 —
-              you've come to the right place! I truly love building beautiful UIs and would be
-              excited to bring your vision to life.
+              you've come to the right place!
             </motion.p>
             <motion.div variants={itemVariants}>
               <Button

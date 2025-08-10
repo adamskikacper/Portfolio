@@ -47,7 +47,7 @@ const projects: ProjectTypes[] = [
     projectLink: "https://freelancemarketplace.kacperadamski.dev",
     githubLink: "https://github.com/adamskikacper/DecentWork-Decentralised-Freelance-Marketplace",
     imageUrl: "/assets/images/freelance-marketplace.webp",
-    videoUrl: null,
+    videoUrl: "/assets/videos/freelance-marketplace.mp4",
     status: "ongoing",
   },
   {

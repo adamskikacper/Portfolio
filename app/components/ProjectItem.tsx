@@ -94,7 +94,7 @@ export const ProjectItem = ({
                     buttonText="View Project"
                     onButtonClick={() => window.open(project.projectLink, "_blank")}
                     buttonIcon={Eye}
-                    type={project.status === "ongoing" ? "image" : "video"}
+                    type={project.videoUrl ? "video" : "image"}
                     className="h-full w-full rounded-xl"
                     aspectRatio="aspect-video"
                   />

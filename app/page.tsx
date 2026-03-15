@@ -9,6 +9,7 @@ import LoadingOverlay from "./components/LoadingOverlay";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import { useLenis } from "./hooks/useLenis";
 import { useLoadingAnimation } from "./hooks/useLoadingAnimation";
 import type { ProjectTypes } from "./types/projectTypes";
 
@@ -165,6 +166,7 @@ const projects: ProjectTypes[] = [
 export default function Home() {
   const headerRef = useRef<HeaderRefs>(null);
   const { showLoading, loadingRef } = useLoadingAnimation();
+  useLenis();
 
   return (
     <div className="relative">
